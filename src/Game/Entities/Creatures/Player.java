@@ -84,8 +84,9 @@ public class Player extends CreatureBase {
         animFireATTR.tick();
         animFireATTU.tick();
         animFireATTD.tick();
-
-
+        if(handler.getKeyManager().walkSpeed != true) {
+        	speed = 3.0f;
+        }
 
         //Movement
         getInput();
@@ -256,6 +257,8 @@ public class Player extends CreatureBase {
             xMove = -speed;
         if(handler.getKeyManager().right&&! attacking)
             xMove = speed;
+        if(handler.getKeyManager().walkSpeed &&! attacking)
+        	speed = 8.0f;
     }
 
 

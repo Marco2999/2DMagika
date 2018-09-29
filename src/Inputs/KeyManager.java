@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class KeyManager implements KeyListener {
 
 	private boolean[] keys,justPressed,cantPress;
-	public boolean up=false, down=false, left=false, right=false;
+	public boolean up=false, down=false, left=false, right=false, walkSpeed=false;
 	public boolean attbut=false;
 	public boolean fattbut=false;
 	public boolean pbutt=false;
@@ -43,6 +43,7 @@ public class KeyManager implements KeyListener {
 		fattbut = keys[KeyEvent.VK_C];
 		pbutt = keys[KeyEvent.VK_ESCAPE];
 
+		walkSpeed = keys[KeyEvent.VK_CONTROL];
 	}
 
 	@Override

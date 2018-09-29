@@ -17,7 +17,7 @@ import java.util.DuplicateFormatFlagsException;
 
 public abstract class CreatureBase extends EntityBase {
 
-    protected static final float DEFAULT_SPEED = 3.0f;
+    protected static final float DEFAULT_SPEED = 8.0f;
     protected static final int DEFAULT_CREATURE_WIDTH = 64,
             DEFAULT_CREATURE_HEIGHT = 64;
 
