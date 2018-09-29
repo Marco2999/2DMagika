@@ -257,8 +257,13 @@ public class Player extends CreatureBase {
             xMove = -speed;
         if(handler.getKeyManager().right&&! attacking)
             xMove = speed;
+        
+        //Sprint
         if(handler.getKeyManager().walkSpeed &&! attacking)
         	speed = 8.0f;
+//        //Next World
+//        if(handler.getKeyManager().nextWorldKey)
+//        	
     }
 
 

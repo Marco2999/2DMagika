@@ -10,6 +10,8 @@ public class KeyManager implements KeyListener {
 	public boolean attbut=false;
 	public boolean fattbut=false;
 	public boolean pbutt=false;
+	public boolean nextWorldKey=false;
+	public boolean regenHP=false;
 
 
 	public KeyManager(){
@@ -43,7 +45,15 @@ public class KeyManager implements KeyListener {
 		fattbut = keys[KeyEvent.VK_C];
 		pbutt = keys[KeyEvent.VK_ESCAPE];
 
+		//Sprint Button
 		walkSpeed = keys[KeyEvent.VK_CONTROL];
+		
+		//Next World
+		nextWorldKey = keys[KeyEvent.VK_TAB];
+		
+		//HP Regeneration
+		regenHP = keys[KeyEvent.VK_SHIFT];
+	
 	}
 
 	@Override
