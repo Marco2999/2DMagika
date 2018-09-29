@@ -87,6 +87,9 @@ public class Player extends CreatureBase {
         if(handler.getKeyManager().walkSpeed != true) {
         	speed = 3.0f;
         }
+        if(handler.getKeyManager().regenHP != false && health != 75) {
+        	health++;
+        }
 
         //Movement
         getInput();
