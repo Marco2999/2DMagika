@@ -202,7 +202,7 @@ public class Player extends CreatureBase {
     @Override
     public void checkAttacks(){
         attackTimer += System.currentTimeMillis() - lastAttackTimer;
-        lastAttackTimer = System.currentTimeMillis();
+        lastAttackTimer =10;
         if(attackTimer < attackCooldown)
             return;
 
@@ -262,6 +262,7 @@ public class Player extends CreatureBase {
             xMove = speed;
         if(handler.getKeyManager().walkSpeed &&! attacking)
         	speed = 8.0f;
+        	
     }
 
 
@@ -354,7 +355,13 @@ public class Player extends CreatureBase {
 
 
     }
+    public int getHealth() {
+        return health;
+    }
 
+    public void setHealth(int health) {
+        this.health = health;
+    }
     public Inventory getInventory() {
         return inventory;
     }

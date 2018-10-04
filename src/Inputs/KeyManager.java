@@ -11,6 +11,7 @@ public class KeyManager implements KeyListener {
 	public boolean fattbut=false;
 	public boolean pbutt=false;
 	public boolean regenHP=false;
+	public boolean appleHeal=false;
 
 
 	public KeyManager(){
@@ -43,10 +44,13 @@ public class KeyManager implements KeyListener {
 		attbut = keys[KeyEvent.VK_E];
 		fattbut = keys[KeyEvent.VK_C];
 		pbutt = keys[KeyEvent.VK_ESCAPE];
-		//Key for sprint
-		walkSpeed = keys[KeyEvent.VK_CONTROL];
-		//Key for changing to the next world
-		regenHP = keys[KeyEvent.VK_SHIFT];
+		
+		walkSpeed = keys[KeyEvent.VK_CONTROL];//Key for sprint		
+		regenHP = keys[KeyEvent.VK_SHIFT];//Key for healing HP
+		appleHeal = keys[KeyEvent.VK_F];//Key for healing with apple item
+		
+		
+		
 	}
 
 	@Override
