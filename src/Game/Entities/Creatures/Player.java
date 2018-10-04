@@ -129,7 +129,7 @@ public class Player extends CreatureBase {
         //Inventory
         inventory.tick();
 
-        //spellgui
+        //spell gui
         spellGUI.tick();
     }
 
@@ -260,9 +260,10 @@ public class Player extends CreatureBase {
             xMove = -speed;
         if(handler.getKeyManager().right&&! attacking)
             xMove = speed;
+        
+        //Sprint
         if(handler.getKeyManager().walkSpeed &&! attacking)
         	speed = 8.0f;
-        	
     }
 
 
@@ -348,7 +349,7 @@ public class Player extends CreatureBase {
 
             return animFireATTU.getCurrentFrame();
 
-        }else{   //ll
+        }else{   
 
             return animFireATT.getCurrentFrame();
         }
