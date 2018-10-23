@@ -114,15 +114,6 @@ public class Player extends CreatureBase {
 
         }
         
-//        if(!fcactive){
-//            fcounter++;
-//        }
-//        if(fcounter>=60){
-//            fcounter=0;
-//            fcactive=true;
-//            FireBall=true;
-//
-//        }
 
         if(FireBall){
             FireMove++;
@@ -226,10 +217,8 @@ public class Player extends CreatureBase {
 
         for (Item i : getInventory().getInventoryItems()) {
             if (i.getName() == "Apple") {
-                //healing=true;
                 System.out.println("Healed for 10!");
                 i.setCount(i.getCount() - 1);
-                //healing=false;
                 health+= 5;
                 return;
 
