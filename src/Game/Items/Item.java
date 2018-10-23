@@ -32,11 +32,10 @@ public class Item {
     public static Item rockItem = new Item(Images.blocks[14],"Rock",1);
     public static Item fireRuneItem = new Item(Images.Runes[2],"Fire Rune",2);
     public static Item appleHP = new Item(Images.items[1],"Apple",3);//Heal Item
-<<<<<<< HEAD
-    //public static Item attackItm = new Item(Images.items[2], "Slingshot", 4);//Attack increase item
-    //public static Item Coin = new Item(Images.items[3], "Coin", 5);//Coin 
-=======
->>>>>>> refs/heads/addHealItem
+
+    public static Item attackItm = new Item(Images.items[2], "Slingshot", 4);//Attack increase item
+    public static Item Coin = new Item(Images.items[3], "Coin", 5);//Coin
+
 
 
     //class

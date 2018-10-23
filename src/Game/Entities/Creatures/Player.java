@@ -52,6 +52,9 @@ public class Player extends CreatureBase {
     private Boolean Hcactive=true;
     private Boolean Healing=false;
 
+    //Attack item count
+    int ati = 0;
+    
     //spells
 
 
@@ -82,6 +85,12 @@ public class Player extends CreatureBase {
 
     @Override
     public void tick() {
+    	// Attack Increase
+    	for (Item i : getInventory().getInventoryItems()) {
+            if (i.getName() == "Slingshot") {
+            	attack = 2 + i.getCount();
+            }
+    	}
         //Animations
         animDown.tick();
         animUp.tick();
@@ -230,7 +239,7 @@ public class Player extends CreatureBase {
     @Override
     public void checkAttacks(){
         attackTimer += System.currentTimeMillis() - lastAttackTimer;
-        lastAttackTimer =10;
+        lastAttackTimer = System.currentTimeMillis();
         if(attackTimer < attackCooldown)
             return;
 
