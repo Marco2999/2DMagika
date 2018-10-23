@@ -31,6 +31,8 @@ public class SkelyEnemy extends CreatureBase  {
     private int direction;
 
     public SkelyEnemy(Handler handler, float x, float y) {
+    	
+    	
         super(handler, x, y, CreatureBase.DEFAULT_CREATURE_WIDTH, CreatureBase.DEFAULT_CREATURE_HEIGHT);
         bounds.x=8*2;
         bounds.y=18*2;
@@ -53,6 +55,7 @@ public class SkelyEnemy extends CreatureBase  {
 
         Skelyinventory= new Inventory(handler);
     }
+    //Font stringfont = new Font("SansSerif",Font.PLAIN, 20);
 
     @Override
     public void tick() {
@@ -179,11 +182,32 @@ public class SkelyEnemy extends CreatureBase  {
     @Override
     public void render(Graphics g) {
         g.drawImage(getCurrentAnimationFrame(animDown,animUp,animLeft,animRight,Images.SkelyEnemy_front,Images.SkelyEnemy_back,Images.SkelyEnemy_left,Images.SkelyEnemy_right), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-        if(isBeinghurt() && healthcounter<=120){
-            g.setColor(Color.white);
-            g.drawString("SkelyHealth: " + getHealth(),(int) (x-handler.getGameCamera().getxOffset()),(int) (y-handler.getGameCamera().getyOffset()-20));
+        
+        g.setColor(Color.BLACK);
+        g.drawRect((int)(x-handler.getGameCamera().getxOffset()-1),(int)(y-handler.getGameCamera().getyOffset()-21),51,11);
+        if(this.getHealth()>35){
+            g.setColor(Color.GREEN);
+            g.fillRect((int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),10);
+
+        }else if(this.getHealth()>=15 && getHealth()<=50){
+            g.setColor(Color.YELLOW);
+            g.fillRect((int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),10);
+
+        }else if(this.getHealth() < 15){
+            g.setColor(Color.RED);
+            g.fillRect((int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),10);
+
+        }  
+        Font stringfont = new Font("SansSerif",Font.PLAIN, 10);
+        g.setFont(stringfont);
+        g.setColor(Color.white);
+      
+        g.drawString("Health: " + getHealth(),(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-11));
+//        if(isBeinghurt() && healthcounter<=120){
+//            g.setColor(Color.white);
+//            g.drawString("SkelyHealth: " + getHealth(),(int) (x-handler.getGameCamera().getxOffset()),(int) (y-handler.getGameCamera().getyOffset()-20));
         }
-    }
+    
 
 
 

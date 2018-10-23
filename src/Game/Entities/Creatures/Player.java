@@ -185,6 +185,8 @@ public class Player extends CreatureBase {
             g.fillRect((int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),10);
 
         }
+        Font stringfont = new Font("SansSerif",Font.PLAIN, 12);
+        g.setFont(stringfont);
         g.setColor(Color.white);
         g.drawString("Health: " + getHealth(),(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-10));
 
@@ -222,7 +224,7 @@ public class Player extends CreatureBase {
             }
         }
     }
-    public void healWithItem() {
+    public void healWithItem() { // Heal with item feature
 
         for (Item i : getInventory().getInventoryItems()) {
             if (i.getName() == "Apple") {
