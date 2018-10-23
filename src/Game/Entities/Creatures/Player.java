@@ -32,6 +32,7 @@ public class Player extends CreatureBase {
     private int fcounter = 0;
     private Boolean fcactive=true;
     private Boolean FireBall=false;
+    
     private Boolean LaunchedFireBall=false;
     private Boolean LaunchedFireBallL=false;
     private Boolean LaunchedFireBallR=false;
@@ -44,6 +45,12 @@ public class Player extends CreatureBase {
     private int FireSpeed = 2;
     private int FireMove = 0;
     private int movexp,moveyp,movexn,moveyn,tempmoveyp,tempmovexn,tempmoveyn,tempmovexp,fy,fx;
+    
+    //healing
+    private Boolean healing=false;
+    private int Hcounter = 0;
+    private Boolean Hcactive=true;
+    private Boolean Healing=false;
 
     //spells
 
@@ -95,16 +102,27 @@ public class Player extends CreatureBase {
         getInput();
         move();
         handler.getGameCamera().centerOnEntity(this);
-
-        if(!fcactive){
-            fcounter++;
+        
+        //Healing Cooldown
+        if(!Hcactive){
+            Hcounter++;
         }
-        if(fcounter>=60){
-            fcounter=0;
-            fcactive=true;
-            FireBall=true;
+        if(Hcounter>=60){
+            Hcounter=0;
+            Hcactive=true;
+            Healing=true;
 
         }
+        
+//        if(!fcactive){
+//            fcounter++;
+//        }
+//        if(fcounter>=60){
+//            fcounter=0;
+//            fcactive=true;
+//            FireBall=true;
+//
+//        }
 
         if(FireBall){
             FireMove++;
@@ -124,6 +142,12 @@ public class Player extends CreatureBase {
 
 
         }
+        // Heal
+        if(handler.getKeyManager().appleHeal) {
+        	if(health != 75) {
+        	healWithItem() ;
+        	}
+        }
 
 
         //Inventory
@@ -136,7 +160,8 @@ public class Player extends CreatureBase {
     @Override
     public void render(Graphics g) {
         g.drawImage(getCurrentAnimationFrame(animDown,animUp,animLeft,animRight,Images.player_front,Images.player_back,Images.player_left,Images.player_right), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-
+        
+        
         if(FireBall){
             FireBallAttack(g);
 
@@ -192,6 +217,20 @@ public class Player extends CreatureBase {
                 System.out.println("Burn");
                 i.setCount(i.getCount() - 1);
                 fcactive=false;
+                return;
+
+            }
+        }
+    }
+    public void healWithItem() {
+
+        for (Item i : getInventory().getInventoryItems()) {
+            if (i.getName() == "Apple") {
+                //healing=true;
+                System.out.println("Healed for 10!");
+                i.setCount(i.getCount() - 1);
+                //healing=false;
+                health+= 5;
                 return;
 
             }
