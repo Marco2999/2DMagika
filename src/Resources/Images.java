@@ -79,7 +79,7 @@ public class Images {
 
         butstart = new BufferedImage[3];
         particleSmoke = new BufferedImage[3];
-        items = new BufferedImage[4];
+        items = new BufferedImage[10];
         numbers = new BufferedImage[21];
         Resume = new BufferedImage[2];
         BTitle = new BufferedImage[2];
@@ -170,10 +170,7 @@ public class Images {
 
             items[0]= newsheet.crop(114,448,30,24);//log
             
-            //Custom items
-            items[1]= ItemsSheet.crop(0,0, 32, 32);//Apple
-            items[2]= ItemsSheet.crop(32,0, 32, 32);//Slingshot
-            items[3]= ItemsSheet.crop(96, 0, 32, 32);//Coin
+            
 
             numbers[1]= numsheet.crop(17,15,17,22);
             numbers[2]= numsheet.crop(64,16,14,19);
@@ -257,6 +254,12 @@ public class Images {
             SkelyEnemy_back[1]=newsheet.crop(164,227+130,width,height);
             SkelyEnemy_back[2]=newsheet.crop(196,227+130,width,height);
             SkelyEnemy_back[3]=newsheet.crop(228,227+130,28,height);
+            
+            //Custom items
+            items[1]= ItemsSheet.crop(0,0, 32, 32);//Apple
+            items[2]= ItemsSheet.crop(32,0, 32, 32);//Slingshot
+            items[3]= ItemsSheet.crop(64, 0, 32, 32);//Coin
+            items[4]= ItemsSheet.crop(96, 0, 32, 32);//Key
 
         } catch (IOException e) {
             e.printStackTrace();
