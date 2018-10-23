@@ -169,10 +169,11 @@ public class Images {
             particleSmoke[2]= newsheet.crop(154,400,20,35);
 
             items[0]= newsheet.crop(114,448,30,24);//log
+            
             //Custom items
             items[1]= ItemsSheet.crop(0,0, 32, 32);//Apple
             items[2]= ItemsSheet.crop(32,0, 32, 32);//Slingshot
-            items[3]= ItemsSheet.crop(64, 0, 32, 32);//Coin
+            items[3]= ItemsSheet.crop(96, 0, 32, 32);//Coin
 
             numbers[1]= numsheet.crop(17,15,17,22);
             numbers[2]= numsheet.crop(64,16,14,19);
