@@ -45,7 +45,9 @@ public class Images {
     public static BufferedImage[] FireBallDown;
     public static BufferedImage loading;
     public static BufferedImage spellGUI;
-    public static BufferedImage ACapple;
+    public static BufferedImage Apple;
+    public static BufferedImage Slingshot;
+    public static BufferedImage Coin;
 
 
     public Images() {
@@ -77,7 +79,7 @@ public class Images {
 
         butstart = new BufferedImage[3];
         particleSmoke = new BufferedImage[3];
-        items = new BufferedImage[3];
+        items = new BufferedImage[4];
         numbers = new BufferedImage[21];
         Resume = new BufferedImage[2];
         BTitle = new BufferedImage[2];
@@ -169,6 +171,8 @@ public class Images {
             items[0]= newsheet.crop(114,448,30,24);//log
             //Custom items
             items[1]= ItemsSheet.crop(0,0, 32, 32);//Apple
+            items[2]= ItemsSheet.crop(32,0, 32, 32);//Slingshot
+            items[3]= ItemsSheet.crop(64, 0, 32, 32);//Coin
 
             numbers[1]= numsheet.crop(17,15,17,22);
             numbers[2]= numsheet.crop(64,16,14,19);
