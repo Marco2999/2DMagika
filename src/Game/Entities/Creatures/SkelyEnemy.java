@@ -190,7 +190,7 @@ public class SkelyEnemy extends CreatureBase  {
 
     @Override
     public void die() {
-    	handler.getWorld().getItemManager().addItem(Item.attackItm.createNew((int)x + bounds.x,(int)y + bounds.y,1));
+    	handler.getWorld().getItemManager().addItem(Item.Coin.createNew((int)x + bounds.x,(int)y + bounds.y,1));
     	
     }
 }
