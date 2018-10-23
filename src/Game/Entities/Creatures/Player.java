@@ -239,7 +239,7 @@ public class Player extends CreatureBase {
     @Override
     public void checkAttacks(){
         attackTimer += System.currentTimeMillis() - lastAttackTimer;
-        lastAttackTimer = System.currentTimeMillis();
+        lastAttackTimer = 0;
         if(attackTimer < attackCooldown)
             return;
 

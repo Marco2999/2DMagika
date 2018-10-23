@@ -30,6 +30,9 @@ public class World1 extends BaseWorld{
         entityManager.addEntity(new SkelyEnemy(handler, 1250, 500));
         
         entityManager.addEntity(new CoinBlock(handler, 200, 250));
+        entityManager.addEntity(new CoinBlock(handler, 500, 700));
+        entityManager.addEntity(new CoinBlock(handler, 830, 130));
+        entityManager.addEntity(new CoinBlock(handler, 1000, 900));
 
         entityManager.getPlayer().setX(spawnX);
         entityManager.getPlayer().setY(spawnY);
