@@ -26,6 +26,8 @@ public class Tile {
     public static Tile rightwallTile = new BorderTile(Images.blocks[9],9);
     public static Tile topwallTile = new BorderTile(Images.blocks[10],10);
     public static Tile lowerwallTile = new BorderTile(Images.blocks[11],11);
+    
+    public static Tile coinTile = new CoinBlockTile(Images.blocks[12],12);//Coin Tile
 
     //CLASS
 

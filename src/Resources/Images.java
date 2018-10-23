@@ -65,7 +65,7 @@ public class Images {
 
 
 
-        blocks = new BufferedImage[15];
+        blocks = new BufferedImage[20];
 
         player_left = new BufferedImage[4];
         player_right = new BufferedImage[4];
@@ -211,6 +211,8 @@ public class Images {
             blocks[12] = newsheet.crop(0,260,Bwidth,Bheight);//mossyrock
             blocks[13] = newsheet.crop(176,0,Bwidth,Bheight*2);//tree
             blocks[14] = newsheet.crop(174,410,78,74);//rock
+            
+            blocks[15] = newsheet.crop(256,0,Bwidth,Bheight);//Coin Tile
 
 
             //player anim
