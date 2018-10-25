@@ -20,9 +20,9 @@ public class Door extends StaticEntity {
 
     private BaseWorld world;
 
-    public Door(Handler handler, float x, float y,BaseWorld world) {
+    public Door(Handler handler, float x, float y,BaseWorld world2) {
         super(handler, x, y, 64, 100);
-        this.world=world;
+        this.world=world2;
         health=10000000;
         bounds.x=0;
         bounds.y=0;
