@@ -46,6 +46,7 @@ public class DisplayScreen {
 		
 		frame.add(canvas);
 		frame.pack();
+		frame.setFocusTraversalKeysEnabled(false);
 	}
 
 	public Canvas getCanvas(){
