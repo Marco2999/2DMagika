@@ -100,16 +100,16 @@ public class Images {
             spellGUI = ImageIO.read(getClass().getResourceAsStream("/Sheets/SpellGUI.png"));
 
             inventory = ImageIO.read(getClass().getResourceAsStream("/Sheets/guit.png"));
-            title = ImageIO.read(getClass().getResourceAsStream("/Sheets/Title.png"));
+            title = ImageIO.read(getClass().getResourceAsStream("/Sheets/TitleScreen.png"));
             door = ImageIO.read(getClass().getResourceAsStream("/Sheets/Door.png"));
             E = ImageIO.read(getClass().getResourceAsStream("/Buttons/E.png"));
             EP = ImageIO.read(getClass().getResourceAsStream("/Buttons/EP.png"));
-            Pause = ImageIO.read(getClass().getResourceAsStream("/Buttons/Pause.png"));
-            Resume[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Resume.png"));
+            Pause = ImageIO.read(getClass().getResourceAsStream("/Buttons/PauseScreenBase.png"));
+            Resume[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BResume1.png"));
             Resume[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/ResumeP.png"));
-            BTitle[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BTitle.png"));
+            BTitle[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BTitle1.png"));
             BTitle[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BTitleP.png"));
-            Options[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/Options.png"));
+            Options[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BOptions6.png"));
             Options[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/OptionsP.png"));
             
 

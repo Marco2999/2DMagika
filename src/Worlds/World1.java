@@ -32,11 +32,16 @@ public class World1 extends BaseWorld{
         entityManager.addEntity(new Rock(handler, 1412, 770));
         entityManager.addEntity(new Rock(handler, 1475, 770));
         
+
         // Coin Blocks
         entityManager.addEntity(new CoinBlock(handler, 350, 400));
         entityManager.addEntity(new CoinBlock(handler, 500, 700));
         entityManager.addEntity(new CoinBlock(handler, 830, 130));
         entityManager.addEntity(new CoinBlock(handler, 1000, 900));
+
+        entityManager.addEntity(new CoinBlock(handler, 200, 250));
+        
+
 
         entityManager.getPlayer().setX(spawnX);
         entityManager.getPlayer().setY(spawnY);
