@@ -29,6 +29,11 @@ public class SkelyEnemy extends CreatureBase  {
     private Random randint;
     private int moveCount=0;
     private int direction;
+    
+    private int skelyRegenCounter = 0;
+    
+    
+    
 
     public SkelyEnemy(Handler handler, float x, float y) {
         super(handler, x, y, CreatureBase.DEFAULT_CREATURE_WIDTH, CreatureBase.DEFAULT_CREATURE_HEIGHT);
@@ -72,6 +77,7 @@ public class SkelyEnemy extends CreatureBase  {
 
 
         if(isBeinghurt()){
+        	skelyRegenCounter = 0;
             healthcounter++;
             if(healthcounter>=120){
                 setBeinghurt(false);
@@ -81,6 +87,16 @@ public class SkelyEnemy extends CreatureBase  {
         if(healthcounter>=120&& !isBeinghurt()){
             healthcounter=0;
         }
+        
+        if(!isBeinghurt()) {
+        	skelyRegenCounter++;
+        	if(skelyRegenCounter >= 500 && health < 50) {
+        		health++;
+        	}
+        	
+        	
+        }
+        
 
 
         Skelyinventory.tick();
