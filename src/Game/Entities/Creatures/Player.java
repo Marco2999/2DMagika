@@ -148,6 +148,11 @@ public class Player extends CreatureBase {
         	healWithItem() ;
         	}
         }
+        
+	    // Next World WIP
+	 //   if(handler.getKeyManager().nextWorldKey) {
+	    	
+	  //  }
 
 
         //Inventory
