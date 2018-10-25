@@ -29,6 +29,8 @@ public class SkelyEnemy extends CreatureBase  {
     private Random randint;
     private int moveCount=0;
     private int direction;
+    
+    
 
     public SkelyEnemy(Handler handler, float x, float y) {
     	
@@ -76,6 +78,7 @@ public class SkelyEnemy extends CreatureBase  {
 
         if(isBeinghurt()){
             healthcounter++;
+            
             if(healthcounter>=120){
                 setBeinghurt(false);
                 System.out.print(isBeinghurt());
@@ -87,6 +90,8 @@ public class SkelyEnemy extends CreatureBase  {
 
 
         Skelyinventory.tick();
+        
+        
 
 
     }
