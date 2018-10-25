@@ -56,8 +56,8 @@ public class Player extends CreatureBase {
     int ati = 0;
     
     //spells
-
-
+    
+    
 
     public Player(Handler handler, float x, float y) {
         super(handler, x, y, CreatureBase.DEFAULT_CREATURE_WIDTH, CreatureBase.DEFAULT_CREATURE_HEIGHT);

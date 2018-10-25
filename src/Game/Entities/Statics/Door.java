@@ -19,6 +19,9 @@ public class Door extends StaticEntity {
     public Boolean EP = false;
 
     private BaseWorld world;
+    
+  //World Check
+    public int whatworld;
 
     public Door(Handler handler, float x, float y,BaseWorld world2) {
         super(handler, x, y, 64, 100);
@@ -70,6 +73,7 @@ public class Door extends StaticEntity {
             g.drawImage(Images.EP,(int) x+width,(int) y+10,32,32,null);
             g.drawImage(Images.loading,0,0,800,600,null);
             handler.setWorld(world);
+            whatworld++;
 
         }
 
@@ -80,6 +84,7 @@ public class Door extends StaticEntity {
  
         if(handler.getKeyManager().nextWorldKey) {
         	handler.setWorld(world);
+        	whatworld++;
         }
     }
 
