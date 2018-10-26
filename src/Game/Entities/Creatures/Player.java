@@ -88,7 +88,7 @@ public class Player extends CreatureBase {
     	// Attack Increase
     	for (Item i : getInventory().getInventoryItems()) {
             if (i.getName() == "Slingshot") {
-            	attack = 2 + i.getCount();
+            	this.attack = 2 + i.getCount();
             }
     	}
         //Animations
@@ -105,6 +105,7 @@ public class Player extends CreatureBase {
         }
         if(handler.getKeyManager().regenHP != false && health != 75) {
         	health++;
+        	
         }
 
         //Movement

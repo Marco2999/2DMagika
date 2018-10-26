@@ -1,5 +1,6 @@
 package Worlds;
 
+import Game.Entities.Creatures.BossEnemy;
 import Game.Entities.Creatures.Player;
 import Game.Entities.Creatures.SkelyEnemy;
 import Game.Entities.Statics.*;
@@ -30,7 +31,8 @@ public class World1 extends BaseWorld{
         entityManager.addEntity(new Rock(handler, 1412, 770));
         entityManager.addEntity(new Rock(handler, 1475, 770)); 
         entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
-        entityManager.addEntity(new SkelyEnemy(handler, 1400, 500));
+        entityManager.addEntity(new BossEnemy(handler, 1400, 500));
+        
         
 
         // Coin Blocks
