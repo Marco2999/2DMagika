@@ -55,7 +55,7 @@ public class World1 extends BaseWorld{
         entityManager.getPlayer().setY(spawnY);
     }
     public void tick(){
-   	    if(QuestHumanoid.neededCoins==0 && QuestHumanoid.neededKey==0 && alreadymade<2) {
+   	    if(QuestHumanoid.neededCoins==0 && QuestHumanoid.neededKey==0 && alreadymade==0) {
         	entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
         	alreadymade++;
         }
