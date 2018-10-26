@@ -47,30 +47,20 @@ public class World1 extends BaseWorld{
         entityManager.addEntity(new CoinBlock(handler, 832, 128));
         entityManager.addEntity(new CoinBlock(handler, 1000, 900));
 
-<<<<<<< HEAD
+
         entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
         
-=======
+
         
         entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
->>>>>>> refs/heads/QuestEntity
+
 
 
         entityManager.getPlayer().setX(spawnX);
         entityManager.getPlayer().setY(spawnY);
     }
     public void tick(){
-<<<<<<< HEAD
-//   	    if(QuestHumanoid.neededCoins==0 && QuestHumanoid.neededKey==0 && alreadymade==0) {
-//        	
-//        	alreadymade++;
-//        }
-=======
-   	    //if(QuestHumanoid.neededCoins==0 && QuestHumanoid.neededKey==0 && alreadymade==0) {
-        	
-        //	alreadymade++;
-        //}
->>>>>>> refs/heads/QuestEntity
+
         entityManager.tick();
         itemManager.tick();
         countP++;
