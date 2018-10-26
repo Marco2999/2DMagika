@@ -1,12 +1,14 @@
 package Game.Entities.Creatures;
 
 import Game.Entities.EntityBase;
+import Game.Entities.Statics.Door;
 import Game.GameStates.State;
 import Game.Inventories.Inventory;
 import Game.Items.Item;
 import Game.SpellCast.SpellCastUI;
 import Resources.Animation;
 import Resources.Images;
+import Worlds.World1;
 import Main.Handler;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -91,6 +93,12 @@ public class Player extends CreatureBase {
             	this.attack = 2 + i.getCount();
             }
     	}
+//    	if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_C){
+//			World1.class.entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
+//			World1.super()
+//	}
+    	
+    	
         //Animations
         animDown.tick();
         animUp.tick();
@@ -172,6 +180,7 @@ public class Player extends CreatureBase {
             FireBallAttack(g);
 
         }
+        
 
 
 
@@ -309,6 +318,8 @@ public class Player extends CreatureBase {
         //Sprint
         if(handler.getKeyManager().walkSpeed &&! attacking)
         	speed = 8.0f;
+        
+        
     }
 
 

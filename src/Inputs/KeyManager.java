@@ -15,6 +15,8 @@ public class KeyManager implements KeyListener {
 	public boolean appleHeal=false;
 
 	public boolean nextWorldKey=false;
+	
+	public boolean appearDoor=false;
 
 
 
@@ -66,6 +68,9 @@ public class KeyManager implements KeyListener {
 		
 		//HP Regeneration
 		regenHP = keys[KeyEvent.VK_SHIFT];
+		
+		//Summon Door test
+		appearDoor = keys[KeyEvent.VK_Y];
 	
 
 	}
