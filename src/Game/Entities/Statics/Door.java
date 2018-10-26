@@ -18,7 +18,7 @@ public class Door extends StaticEntity {
 
     private Rectangle ir = new Rectangle();
     public Boolean EP = false;
-
+    private int alreadymade=0;
     private BaseWorld world;
     
   //World Check
@@ -58,12 +58,16 @@ public class Door extends StaticEntity {
 
     @Override
     public void render(Graphics g) {
-    	//if(handler.getKeyManager().appearDoor) {
-        g.drawImage(Images.door,(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()),width,height,null);
 
-        g.setColor(Color.black);
-        checkForPlayer(g, handler.getWorld().getEntityManager().getPlayer());
-    }	
+       	    if(QuestHumanoid.neededCoins==0 && QuestHumanoid.neededKey==0 && alreadymade==0) {
+            	g.drawImage(Images.door,(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()),width,height,null);
+            	g.setColor(Color.RED);
+            	checkForPlayer(g, handler.getWorld().getEntityManager().getPlayer());
+            }
+    	
+    }
+        
+    	
 
     private void checkForPlayer(Graphics g, Player p) {
         Rectangle pr = p.getCollisionBounds(0,0);
@@ -76,11 +80,6 @@ public class Door extends StaticEntity {
             handler.setWorld(world);
             whatworld++;
         }
-
-        
-        
-
-
  
         if(handler.getKeyManager().nextWorldKey) {
         	handler.setWorld(world);

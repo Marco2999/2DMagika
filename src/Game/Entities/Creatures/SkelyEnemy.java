@@ -82,7 +82,6 @@ public class SkelyEnemy extends CreatureBase  {
         if(isBeinghurt()){
         	skelyRegenCounter = 0;
             healthcounter++;
-            System.out.println("Test");
             if(healthcounter>=120){
                 setBeinghurt(false);
                 System.out.print(isBeinghurt());
