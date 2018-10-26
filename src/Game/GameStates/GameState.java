@@ -17,8 +17,8 @@ public class GameState extends State {
         Player player = new Player(handler, 100, 100);
         BaseWorld world = new World1(handler, "res/Maps/map1.map", player);
         handler.setWorld(world);
-        BaseWorld world2 = new World1(handler, "res/Maps/fieldMap.map", player);
-        handler.setWorld(world2);
+//        BaseWorld world2 = new World1(handler, "res/Maps/fieldMap.map", player);
+//        handler.setWorld(world2);
         handler.getWorld().getEntityManager().setPlayer(player);
     }
 
@@ -26,13 +26,10 @@ public class GameState extends State {
     @Override
     public void tick() {
         handler.getWorld().tick();
-
     }
 
     @Override
     public void render(Graphics g) {
         handler.getWorld().render(g);
-
     }
-
 }

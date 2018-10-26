@@ -36,7 +36,7 @@ public class Item {
     public static Item appleHP = new Item(Images.items[1],"Apple",3);//Heal Item
     public static Item attackItm = new Item(Images.items[2], "Slingshot", 4);//Attack increase item
     public static Item Coin = new Item(Images.items[3], "Coin", 5);//Coin
-    public static Item Key = new Item(Images.items[4], "Coin", 6);//Key
+    public static Item Key = new Item(Images.items[4], "Key", 6);//Key
 
 
 

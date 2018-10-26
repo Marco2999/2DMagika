@@ -1,6 +1,7 @@
 package Game.Entities.Statics;
 
 import Game.Entities.Creatures.Player;
+import Game.Entities.Creatures.QuestHumanoid;
 import Game.GameStates.State;
 import Main.Handler;
 import Resources.Images;
@@ -53,7 +54,6 @@ public class Door extends StaticEntity {
         }else if(!handler.getKeyManager().attbut){
             EP=false;
         }
-
     }
 
     @Override
@@ -75,7 +75,6 @@ public class Door extends StaticEntity {
             g.drawImage(Images.loading,0,0,800,600,null);
             handler.setWorld(world);
             whatworld++;
-
         }
 
         

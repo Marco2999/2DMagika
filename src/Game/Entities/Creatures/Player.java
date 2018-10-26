@@ -27,7 +27,7 @@ public class Player extends CreatureBase {
 
 
     //Inventory
-    private Inventory inventory;
+    public Inventory inventory;
 
     private SpellCastUI spellGUI;
 
@@ -203,7 +203,7 @@ public class Player extends CreatureBase {
         g.setFont(stringfont);
         g.setColor(Color.white);
         g.drawString("Health: " + getHealth(),(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-10));
-
+       
 
 
     }

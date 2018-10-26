@@ -82,7 +82,7 @@ public class SkelyEnemy extends CreatureBase  {
         if(isBeinghurt()){
         	skelyRegenCounter = 0;
             healthcounter++;
-            
+            System.out.println("Test");
             if(healthcounter>=120){
                 setBeinghurt(false);
                 System.out.print(isBeinghurt());
@@ -200,6 +200,7 @@ public class SkelyEnemy extends CreatureBase  {
 
     @Override
     public void render(Graphics g) {
+    	
         g.drawImage(getCurrentAnimationFrame(animDown,animUp,animLeft,animRight,Images.SkelyEnemy_front,Images.SkelyEnemy_back,Images.SkelyEnemy_left,Images.SkelyEnemy_right), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
         
         g.setColor(Color.BLACK);
@@ -221,10 +222,7 @@ public class SkelyEnemy extends CreatureBase  {
         g.setFont(stringfont);
         g.setColor(Color.white);
       
-        g.drawString("Health: " + getHealth(),(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-11));
-//        if(isBeinghurt() && healthcounter<=120){
-//            g.setColor(Color.white);
-//            g.drawString("SkelyHealth: " + getHealth(),(int) (x-handler.getGameCamera().getxOffset()),(int) (y-handler.getGameCamera().getyOffset()-20));
+        g.drawString("Health: " + getHealth(),(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-11));        
         }
     
 

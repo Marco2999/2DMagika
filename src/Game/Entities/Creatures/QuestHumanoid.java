@@ -1,5 +1,8 @@
 package Game.Entities.Creatures;
 
+import Game.Inventories.*;
+
+
 import Game.Entities.EntityBase;
 import Game.Inventories.Inventory;
 import Game.Items.Item;
@@ -9,6 +12,8 @@ import Resources.Images;
 
 import java.awt.*;
 import java.util.Random;
+
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 
 /**
  * Created by Elemental on 2/7/2017.
@@ -21,9 +26,11 @@ public class QuestHumanoid extends CreatureBase  {
     private int healthcounter =0;
 
     private Random randint;
-    private int questregencounter = 0;
-
+    private int msgCooldown=0;
+    public int displaycd =0;
     
+    public static int neededCoins =3; 
+    public static int neededKey=1;
 
     public QuestHumanoid(Handler handler, float x, float y) {
     	
@@ -34,7 +41,7 @@ public class QuestHumanoid extends CreatureBase  {
         bounds.width=16*2;
         bounds.height=14*2;
         speed=1.5f;
-        health=5000;
+        health=500;
 
         SkelyCam= new Rectangle();
         randint = new Random();
@@ -44,63 +51,89 @@ public class QuestHumanoid extends CreatureBase  {
 
     @Override
     public void tick() {
-
-
-        if(isBeinghurt()){
-        	questregencounter = 0;
-            healthcounter++;
+    	
+    	if(this.health<500) {
+    	this.health = this.health +5;
+    	}
+    	msgCooldown++;
+        if(isBeinghurt()){// && msgCooldown>120 
+        	
+        	healthcounter++;
+            msgCooldown =0;
             
-            if(healthcounter>=120){
-                setBeinghurt(false);
-                System.out.print(isBeinghurt());
+
+            if(isBeinghurt()){
+                healthcounter++;
+                if(healthcounter>=120){
+                    setBeinghurt(false);
+                    System.out.print("Please deliver these items to me! \n");
+                }
             }
-        }
-        if(healthcounter>=120&& !isBeinghurt()){
-            healthcounter=0;
-        }
-        
-        if(!isBeinghurt()) {
-        	questregencounter++;
-        	if(questregencounter >= 500 && health < 50) {
-        		health++;
-        	}
-        	
+            
+            
+            }
+
+        	questerinventory.tick();
         	
         }
-        
-
-
-        questerinventory.tick();
-        
-        
-
-
+    public void checkattacks() {
+    	//nothing
     }
 
 
     @Override
     public void render(Graphics g) {
-        
-        g.setColor(Color.BLACK);
+    	if(isBeinghurt()) {
+    		for(Item item : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
+    			if(item.getName()=="Coin") {    				
+    				neededCoins = neededCoins - item.getCount();
+    				item.setCount(0);
+    				if(neededCoins < 0) {
+    					neededCoins =0;
+    				}
+    			}else if(item.getName()=="Key") {    				
+    				neededKey = neededKey - item.getCount();
+    				item.setCount(0);
+    				if(neededKey < 0) {
+    					neededKey=0;
+    				}
+    			}  		
+    		}
+//    		for(Item item : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
+//    			if(item.getName()=="Key") {    				
+//    				neededKey = neededKey - item.getCount();
+//    				item.setCount(0);
+//    				if(neededKey < 0) {
+//    					neededKey=0;
+//    				}
+//    			}   		
+//    		}
+    		
+    		
+    		
+    		//Draw quest coin
+    		g.setColor(Color.WHITE);
+    		g.drawImage(Item.Coin.getTexture(),(int) (x - handler.getGameCamera().getxOffset())-60, (int) (y - handler.getGameCamera().getyOffset())+28, 35, 35, null);	
+    		g.drawRect((int) (x - handler.getGameCamera().getxOffset()-60), (int) (y - handler.getGameCamera().getyOffset())+28, 35, 35);
+    		g.drawString(Integer.toString(neededCoins), (int) (x - handler.getGameCamera().getxOffset())-45, (int) (y - handler.getGameCamera().getyOffset())+75);
+    		//Draw quest key
+    		g.drawImage(Item.Key.getTexture(),(int) (x - handler.getGameCamera().getxOffset())+69, (int) (y - handler.getGameCamera().getyOffset())+30, 32, 32, null);
+    		g.drawRect((int) (x - handler.getGameCamera().getxOffset()+68), (int) (y - handler.getGameCamera().getyOffset())+28, 35, 35);
+    		g.drawString(Integer.toString(neededKey), (int) (x - handler.getGameCamera().getxOffset())+82, (int) (y - handler.getGameCamera().getyOffset())+75);
+    		///Quest Text
+    		g.drawString("Please deliver these items to me!",(int)(x-handler.getGameCamera().getxOffset())-68,(int)(y-handler.getGameCamera().getyOffset()-30));
+    	}
+        g.setColor(Color.BLUE);
         g.drawRect((int)(x-handler.getGameCamera().getxOffset()-1),(int)(y-handler.getGameCamera().getyOffset()-21),51,11);
-        if(this.getHealth()>35){
-            g.setColor(Color.GREEN);
-            g.fillRect((int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),10);
-
-        }else if(this.getHealth()>=15 && getHealth()<=50){
-            g.setColor(Color.YELLOW);
-            g.fillRect((int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),10);
-
-        }else if(this.getHealth() < 15){
-            g.setColor(Color.RED);
-            g.fillRect((int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),10);
-
-        }  
-        Font stringfont = new Font("SansSerif",Font.PLAIN, 10);
+        g.setColor(Color.WHITE);
+        g.fillRect((int)(x-handler.getGameCamera().getxOffset()+0.5),(int)(y-handler.getGameCamera().getyOffset()-20),50,10);
+        
+        Font stringfont = new Font("Baghdad",Font.PLAIN, 10);
         g.setFont(stringfont);
-        g.setColor(Color.white);
+        g.setColor(Color.BLACK);
       
-        g.drawString("Health: " + getHealth(),(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-11));
+        g.drawString("Hinata",(int)(x-handler.getGameCamera().getxOffset())+10,(int)(y-handler.getGameCamera().getyOffset()-11));
+        
     }
     
 

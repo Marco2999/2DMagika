@@ -224,7 +224,7 @@ public class BossEnemy extends CreatureBase  {
         Font stringfont = new Font("SansSerif",Font.PLAIN, 13);
         g.setFont(stringfont);
         g.setColor(Color.black);
-        g.drawString("Zabuza",(int)(x-handler.getGameCamera().getxOffset()+13),(int)(y-handler.getGameCamera().getyOffset()-22));
+        g.drawString("Sasuke",(int)(x-handler.getGameCamera().getxOffset()+13),(int)(y-handler.getGameCamera().getyOffset()-22));
         g.setColor(Color.white);
         g.drawString("Boss Health: " + getHealth(),(int)(x-handler.getGameCamera().getxOffset()-18.5),(int)(y-handler.getGameCamera().getyOffset()-8));
 //        if(isBeinghurt() && healthcounter<=120){
