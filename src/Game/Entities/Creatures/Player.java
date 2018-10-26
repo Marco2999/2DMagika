@@ -112,8 +112,7 @@ public class Player extends CreatureBase {
         	speed = 3.0f;
         }
         if(handler.getKeyManager().regenHP != false && health != 75) {
-        	health++;
-        	
+        	health++;        	
         }
 
         //Movement

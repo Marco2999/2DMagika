@@ -214,11 +214,11 @@ public class BossEnemy extends CreatureBase  {
 
         }else if(this.getHealth()>=15 && getHealth()<=50){
             g.setColor(Color.YELLOW);
-            g.fillRect((int)(x-handler.getGameCamera().getxOffset()-14),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),14);
+            g.fillRect((int)(x-handler.getGameCamera().getxOffset()-19),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),14);
 
         }else if(this.getHealth() < 15){
             g.setColor(Color.RED);
-            g.fillRect((int)(x-handler.getGameCamera().getxOffset()-14),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),14);
+            g.fillRect((int)(x-handler.getGameCamera().getxOffset()-19),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),14);
 
         }  
         Font stringfont = new Font("SansSerif",Font.PLAIN, 13);
