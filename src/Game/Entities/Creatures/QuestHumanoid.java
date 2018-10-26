@@ -29,6 +29,7 @@ public class QuestHumanoid extends CreatureBase  {
     private int msgCooldown=0;
     public int displaycd =0;
     
+    public int coinRemember=0;
     public static int neededCoins =3; 
     public static int neededKey=1;
 
@@ -66,7 +67,6 @@ public class QuestHumanoid extends CreatureBase  {
                 healthcounter++;
                 if(healthcounter>=120){
                     setBeinghurt(false);
-                    System.out.print("Please deliver these items to me! \n");
                 }
             }
             
@@ -85,9 +85,10 @@ public class QuestHumanoid extends CreatureBase  {
     public void render(Graphics g) {
     	if(isBeinghurt()) {
     		for(Item item : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
-    			if(item.getName()=="Coin") {    				
+    			if(item.getName()=="Coin") {    		
+    				coinRemember = neededCoins;
     				neededCoins = neededCoins - item.getCount();
-    				item.setCount(0);
+    				item.setCount(item.getCount()-coinRemember);
     				if(neededCoins < 0) {
     					neededCoins =0;
     				}
@@ -99,15 +100,7 @@ public class QuestHumanoid extends CreatureBase  {
     				}
     			}  		
     		}
-//    		for(Item item : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
-//    			if(item.getName()=="Key") {    				
-//    				neededKey = neededKey - item.getCount();
-//    				item.setCount(0);
-//    				if(neededKey < 0) {
-//    					neededKey=0;
-//    				}
-//    			}   		
-//    		}
+
     		
     		
     		
