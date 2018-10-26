@@ -82,8 +82,7 @@ public class CoinBlock extends StaticEntity {
         RNGR=randint.nextInt(1) + 1;
         System.out.println(RNGR);
         if(RNGR==1){
-            handler.getWorld().getItemManager().addItem(Item.Coin.createNew((int)x + bounds.x + (randint.nextInt(32)),(int)y + bounds.y+(randint.nextInt(32) -32),(randint.nextInt(5))));
+            handler.getWorld().getItemManager().addItem(Item.Coin.createNew((int)x + bounds.x + (randint.nextInt(32)),(int)y + bounds.y+(randint.nextInt(32) -32),(randint.nextInt(5)+1)));
         }
-
     }
 }
