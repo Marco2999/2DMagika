@@ -7,6 +7,7 @@ import Game.Entities.Creatures.SkelyEnemy;
 import Game.Entities.Creatures.SkelyEnemy2;
 import Game.Entities.Statics.CoinBlock;
 import Game.Entities.Statics.Door;
+import Game.Entities.Statics.Door2;
 import Game.Entities.Statics.Rock;
 import Game.Entities.Statics.Tree;
 //import Game.Entities.Statics.CactusBlock;
@@ -34,7 +35,7 @@ public class fieldWorld extends BaseWorld{
         entityManager.addEntity(new Rock(handler, 1350, 770));
         entityManager.addEntity(new Rock(handler, 1412, 770));
         
-        entityManager.addEntity(new Door(handler, 100, 0,fieldWorld));
+        entityManager.addEntity(new Door2(handler, 400, 0,fieldWorld));
         
         entityManager.addEntity(new SecondQuestHumanoid(handler, 650, 50));
         entityManager.addEntity(new SkelyEnemy2(handler, 400, 400));
@@ -48,11 +49,11 @@ public class fieldWorld extends BaseWorld{
         entityManager.addEntity(new SkelyEnemy2(handler, 400, 600));
         
 
-       // entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
+
         entityManager.addEntity(new BossEnemy(handler, 1400, 500));;
 
         entityManager.addEntity(new Rock(handler, 1475, 770));
-        //entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
+
        
         
         

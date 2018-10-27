@@ -31,7 +31,7 @@ public class World1 extends BaseWorld{
         entityManager.addEntity(new Tree(handler, 765, 888));
         entityManager.addEntity(new Rock(handler, 88, 1345));
         entityManager.addEntity(new Tree(handler, 77, 700));
-        entityManager.addEntity(new Rock(handler, 700, 150));       
+        entityManager.addEntity(new Rock(handler, 700, 150));
         entityManager.addEntity(new Rock(handler, 1350, 770));
         entityManager.addEntity(new Rock(handler, 1412, 770));
         entityManager.addEntity(new Rock(handler, 1475, 770));

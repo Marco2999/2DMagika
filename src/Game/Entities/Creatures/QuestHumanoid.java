@@ -95,7 +95,7 @@ public class QuestHumanoid extends CreatureBase  {
     			if(item.getName()=="Coin") {    		
     				coinRemember = neededCoins;
     				neededCoins = neededCoins - item.getCount();
-    				item.setCount(item.getCount()-coinRemember);
+    				item.setCount(0);
     				if(neededCoins < 0) {
     					neededCoins =0;
     				}

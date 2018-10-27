@@ -128,7 +128,7 @@ public class SecondQuestHumanoid extends CreatureBase  {
         
         Font stringfont = new Font("Baghdad",Font.PLAIN, 10);
         g.setFont(stringfont);
-        g.setColor(Color.BLACK);
+        g.setColor(Color.PINK);
       
         g.drawString("Sakura",(int)(x-handler.getGameCamera().getxOffset())+10,(int)(y-handler.getGameCamera().getyOffset()-11));
         

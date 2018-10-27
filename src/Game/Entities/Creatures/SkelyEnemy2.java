@@ -232,6 +232,7 @@ public class SkelyEnemy2 extends CreatureBase  {
     public void die() {
     	handler.getWorld().getItemManager().addItem(Item.Coin.createNew((int)x + bounds.x,(int)y + bounds.y,1));
     	handler.getWorld().getItemManager().addItem(Item.Ramen.createNew((int)x + bounds.x+50,(int)y + bounds.y,1));
+    	handler.getWorld().getItemManager().addItem(Item.Seal.createNew((int)x + bounds.x+25,(int)y + bounds.y,1));
     	
     }
 }
