@@ -1,26 +1,24 @@
 package Worlds;
-
 import Game.Entities.Creatures.BossEnemy;
 import Game.Entities.Creatures.Player;
 import Game.Entities.Creatures.QuestHumanoid;
 import Game.Entities.Creatures.SkelyEnemy;
-import Game.Entities.Statics.*;
-import Game.GameStates.State;
+import Game.Entities.Statics.CoinBlock;
+import Game.Entities.Statics.Door;
+import Game.Entities.Statics.Rock;
+import Game.Entities.Statics.Tree;
 import Main.Handler;
 
 /**
- * Created by Elemental on 1/2/2017.
+ * Created by Elemental on 2/10/2017.
  */
-public class World1 extends BaseWorld{
+public class fieldWorld extends BaseWorld{
     private Handler handler;
-    private BaseWorld caveWorld;
-    public int checkdoor=0;
-    private int alreadymade=0;
+    private Player player;
 
-    public World1(Handler handler, String path, Player player){
+    public fieldWorld(Handler handler, String path, Player player){
         super(handler,path,player);
         this.handler = handler;
-        caveWorld = new CaveWorld(handler,"res/Maps/caveMap.map",player);
 
         entityManager.addEntity(new Tree(handler, 100, 250));
         entityManager.addEntity(new Rock(handler, 100, 450));
@@ -46,9 +44,6 @@ public class World1 extends BaseWorld{
         entityManager.addEntity(new CoinBlock(handler, 500, 700));
         entityManager.addEntity(new CoinBlock(handler, 832, 128));
         entityManager.addEntity(new CoinBlock(handler, 1000, 900));
-
-
-        entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
         
 
         
@@ -58,20 +53,11 @@ public class World1 extends BaseWorld{
         entityManager.getPlayer().setX(spawnX);
         entityManager.getPlayer().setY(spawnY);
     }
-    public void tick(){
-
-        entityManager.tick();
-        itemManager.tick();
-        countP++;
-        if(countP>=30){
-            countP=30;
-        }
-
-        if(handler.getKeyManager().pbutt && countP>=30){
-            handler.getMouseManager().setUimanager(null);
-            countP=0;
-            State.setState(handler.getGame().pauseState);
-        }
-    }
+    
+//    
+//    public CaveWorld(Handler handler, String path, Player player) {
+//        super(handler,path,player);
+//        this.handler = handler;
+//        this.player=player;
 
 }

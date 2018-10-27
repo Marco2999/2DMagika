@@ -53,10 +53,10 @@ public class BossEnemy extends CreatureBase  {
         randint = new Random();
         direction = randint.nextInt(4) + 1;
 
-        animDown = new Animation(animWalkingSpeed, Images.SkelyEnemy_front);
-        animLeft = new Animation(animWalkingSpeed,Images.SkelyEnemy_left);
-        animRight = new Animation(animWalkingSpeed,Images.SkelyEnemy_right);
-        animUp = new Animation(animWalkingSpeed,Images.SkelyEnemy_back);
+        animDown = new Animation(animWalkingSpeed, Images.Boss_front);
+        animLeft = new Animation(animWalkingSpeed,Images.Boss_left);
+        animRight = new Animation(animWalkingSpeed,Images.Boss_right);
+        animUp = new Animation(animWalkingSpeed,Images.Boss_back);
 
         BossInventory= new Inventory(handler);
     }
@@ -200,7 +200,7 @@ public class BossEnemy extends CreatureBase  {
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(getCurrentAnimationFrame(animDown,animUp,animLeft,animRight,Images.SkelyEnemy_front,Images.SkelyEnemy_back,Images.SkelyEnemy_left,Images.SkelyEnemy_right), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+        g.drawImage(getCurrentAnimationFrame(animDown,animUp,animLeft,animRight,Images.Boss_front,Images.Boss_back,Images.Boss_left,Images.Boss_right), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
         
         g.setColor(Color.ORANGE);
         g.drawRect((int)(x-handler.getGameCamera().getxOffset()-20),(int)(y-handler.getGameCamera().getyOffset()-21),101,15);
