@@ -13,7 +13,7 @@ import java.util.Random;
 /**
  * Created by Elemental on 2/7/2017.
  */
-public class SkelyEnemy2 extends CreatureBase  {
+public class CreepEnemy extends CreatureBase  {
 
 
     private Animation animDown, animUp, animLeft, animRight;
@@ -35,7 +35,7 @@ public class SkelyEnemy2 extends CreatureBase  {
 
     
 
-    public SkelyEnemy2(Handler handler, float x, float y) {
+    public CreepEnemy(Handler handler, float x, float y) {
     	
     	
         super(handler, x, y, CreatureBase.DEFAULT_CREATURE_WIDTH, CreatureBase.DEFAULT_CREATURE_HEIGHT);
@@ -53,10 +53,10 @@ public class SkelyEnemy2 extends CreatureBase  {
         randint = new Random();
         direction = randint.nextInt(4) + 1;
 
-        animDown = new Animation(animWalkingSpeed, Images.SkelyEnemy_front);
-        animLeft = new Animation(animWalkingSpeed,Images.SkelyEnemy_left);
-        animRight = new Animation(animWalkingSpeed,Images.SkelyEnemy_right);
-        animUp = new Animation(animWalkingSpeed,Images.SkelyEnemy_back);
+        animDown = new Animation(animWalkingSpeed, Images.CreepEnemy_front);
+        animLeft = new Animation(animWalkingSpeed,Images.CreepEnemy_left);
+        animRight = new Animation(animWalkingSpeed,Images.CreepEnemy_right);
+        animUp = new Animation(animWalkingSpeed,Images.CreepEnemy_back);
 
         Skelyinventory= new Inventory(handler);
     }
@@ -200,7 +200,7 @@ public class SkelyEnemy2 extends CreatureBase  {
     @Override
     public void render(Graphics g) {
     	
-        g.drawImage(getCurrentAnimationFrame(animDown,animUp,animLeft,animRight,Images.SkelyEnemy_front,Images.SkelyEnemy_back,Images.SkelyEnemy_left,Images.SkelyEnemy_right), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+        g.drawImage(getCurrentAnimationFrame(animDown,animUp,animLeft,animRight,Images.CreepEnemy_front,Images.CreepEnemy_back,Images.CreepEnemy_left,Images.CreepEnemy_right), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
         
         g.setColor(Color.BLACK);
         g.drawRect((int)(x-handler.getGameCamera().getxOffset()-1),(int)(y-handler.getGameCamera().getyOffset()-21),51,11);

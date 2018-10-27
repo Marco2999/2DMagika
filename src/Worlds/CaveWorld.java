@@ -4,8 +4,7 @@ import Game.Entities.Creatures.CompanionEntity;
 import Game.Entities.Creatures.Player;
 import Game.Entities.Creatures.QuestHumanoid;
 import Game.Entities.Creatures.SecondQuestHumanoid;
-import Game.Entities.Creatures.SkelyEnemy;
-import Game.Entities.Creatures.SkelyEnemy2;
+import Game.Entities.Creatures.CreepEnemy;
 import Game.Entities.Statics.CoinBlock;
 import Game.Entities.Statics.Door;
 import Game.Entities.Statics.Door2;
@@ -46,10 +45,10 @@ public class CaveWorld extends BaseWorld{
         entityManager.addEntity(new SecondQuestHumanoid(handler, 650, 50));
 
         entityManager.addEntity(new Door2(handler, 300, 0, fieldWorld));
-        entityManager.addEntity(new SkelyEnemy2(handler, 400, 400));
-        entityManager.addEntity(new SkelyEnemy2(handler, 700, 600));
-        entityManager.addEntity(new SkelyEnemy2(handler, 300, 370));
-        entityManager.addEntity(new SkelyEnemy2(handler, 350, 300));
+        entityManager.addEntity(new CreepEnemy(handler, 400, 400));
+        entityManager.addEntity(new CreepEnemy(handler, 700, 600));
+        entityManager.addEntity(new CreepEnemy(handler, 300, 370));
+        entityManager.addEntity(new CreepEnemy(handler, 350, 300));
 
         
         

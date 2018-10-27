@@ -306,25 +306,25 @@ public class Images {
             
 //Creep Enemy
             
-            CreepEnemy_front[0]=newsheet.crop(526,253,width,height);
-            CreepEnemy_front[1]=newsheet.crop(558,253,width,height);
-            CreepEnemy_front[2]=newsheet.crop(590,253,width,height);
-            CreepEnemy_front[3]=newsheet.crop(622,253,28,height);
+            CreepEnemy_front[0]=newsheet.crop(526,258,16,31);
+            CreepEnemy_front[1]=newsheet.crop(557,258,16,31);
+            CreepEnemy_front[2]=newsheet.crop(589,258,16,31);
+            CreepEnemy_front[3]=newsheet.crop(621,258,16,31);
             
-            CreepEnemy_left[0]=newsheet.crop(526,296,width,height);
-            CreepEnemy_left[1]=newsheet.crop(558,296,width,height);
-            CreepEnemy_left[2]=newsheet.crop(590,296,width,height);
-            CreepEnemy_left[3]=newsheet.crop(622,296,28,height);
+            CreepEnemy_left[0]=newsheet.crop(526,292,16,31);
+            CreepEnemy_left[1]=newsheet.crop(557,292,16,31);
+            CreepEnemy_left[2]=newsheet.crop(588,292,16,31);
+            CreepEnemy_left[3]=newsheet.crop(619,292,16,31);
 
-            CreepEnemy_right[0]=newsheet.crop(526,336,width,height);
-            CreepEnemy_right[1]=newsheet.crop(558,336,width,height);
-            CreepEnemy_right[2]=newsheet.crop(590,336,width,height);
-            CreepEnemy_right[3]=newsheet.crop(622,336,28,height);
+            CreepEnemy_right[0]=newsheet.crop(526,325,16,31);
+            CreepEnemy_right[1]=newsheet.crop(557,325,16,31);
+            CreepEnemy_right[2]=newsheet.crop(588,325,16,31);
+            CreepEnemy_right[3]=newsheet.crop(622,325,16,31);
 
-            CreepEnemy_back[0]=newsheet.crop(526,378,width,height);
-            CreepEnemy_back[1]=newsheet.crop(558,378,width,height);
-            CreepEnemy_back[2]=newsheet.crop(590,378,width,height);
-            CreepEnemy_back[3]=newsheet.crop(622,378,28,height);
+            CreepEnemy_back[0]=newsheet.crop(525,359,15,31);
+            CreepEnemy_back[1]=newsheet.crop(559,359,15,31);
+            CreepEnemy_back[2]=newsheet.crop(590,359,15,31);
+            CreepEnemy_back[3]=newsheet.crop(622,359,15,31);
             
             // Companion Rock Lee
             Companion_front[0]=newsheet.crop(132,131+130,width,height);

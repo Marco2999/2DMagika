@@ -179,11 +179,6 @@ public class Player extends CreatureBase {
         	}
         }
         
-	    // Next World WIP
-	 //   if(handler.getKeyManager().nextWorldKey) {
-	    	
-	  //  }
-
 
         //Inventory
         inventory.tick();
