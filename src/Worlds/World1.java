@@ -1,11 +1,13 @@
 package Worlds;
 
 import Game.Entities.Creatures.BossEnemy;
+import Game.Entities.Creatures.CompanionEntity;
 import Game.Entities.Creatures.Player;
 import Game.Entities.Creatures.QuestHumanoid;
 import Game.Entities.Creatures.SkelyEnemy;
 import Game.Entities.Statics.*;
 import Game.GameStates.State;
+import Game.Items.Item;
 import Main.Handler;
 
 /**
@@ -15,7 +17,7 @@ public class World1 extends BaseWorld{
     private Handler handler;
     private BaseWorld CaveWorld;
     public int checkdoor=0;
-    private int alreadymade=0;
+    public boolean playerHasSeal = false;
 
     public World1(Handler handler, String path, Player player){
         super(handler,path,player);
@@ -34,10 +36,14 @@ public class World1 extends BaseWorld{
         entityManager.addEntity(new Rock(handler, 1412, 770));
         entityManager.addEntity(new Rock(handler, 1475, 770));
 
+
        // entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
+
+        entityManager.addEntity(new BossEnemy(handler, 1400, 500));
+
         entityManager.addEntity(new QuestHumanoid(handler, 650, 50));
         entityManager.addEntity(new SkelyEnemy(handler, 200, 300));
-        
+        entityManager.addEntity(new CompanionEntity(handler, 400, 600));
         
         
         // Coin Blocks
@@ -59,7 +65,25 @@ public class World1 extends BaseWorld{
         entityManager.getPlayer().setY(spawnY);
     }
     public void tick(){
+    	for (Item j : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
+			if (j.getName() == "Seal") {
+				playerHasSeal = true;
+			}
+		}
+    	if(handler.getKeyManager().summonCompanion&&playerHasSeal) {
+    		entityManager.addEntity(new CompanionEntity(handler, 400, 600));
+			
+			for (Item j : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
+				if (j.getName() == "Seal") {
+					playerHasSeal = false;
+					j.setCount(j.getCount() - 1);
+					//stopFollowingMeSans++;
+					Item.Seal.setCount(0);
 
+					break;
+				}
+			}
+		}
         entityManager.tick();
         itemManager.tick();
         countP++;

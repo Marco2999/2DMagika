@@ -1,5 +1,6 @@
 package Worlds;
 import Game.Entities.Creatures.BossEnemy;
+import Game.Entities.Creatures.CompanionEntity;
 import Game.Entities.Creatures.Player;
 import Game.Entities.Creatures.QuestHumanoid;
 import Game.Entities.Creatures.SecondQuestHumanoid;
@@ -9,6 +10,7 @@ import Game.Entities.Statics.Door;
 import Game.Entities.Statics.Rock;
 import Game.Entities.Statics.Tree;
 import Game.GameStates.State;
+import Game.Items.Item;
 import Main.Handler;
 
 /**
@@ -37,11 +39,15 @@ public class CaveWorld extends BaseWorld{
         entityManager.addEntity(new Rock(handler, 1350, 770));
         entityManager.addEntity(new Rock(handler, 1412, 770));
         entityManager.addEntity(new Rock(handler, 1475, 770));
+
 //        entityManager.addEntity(new CactusBlock(handler, 400, 20));
 //        entityManager.addEntity(new Door(handler, 100, 0, fieldWorld));
         entityManager.addEntity(new SecondQuestHumanoid(handler, 650, 50));
         entityManager.addEntity(new SkelyEnemy(handler, 200, 300));
+
+        entityManager.addEntity(new Door(handler, 100, 0, fieldWorld));
         
+        entityManager.addEntity(new BossEnemy(handler, 1400, 500));;
         
         
         // Coin Blocks
@@ -53,7 +59,8 @@ public class CaveWorld extends BaseWorld{
 
 
         entityManager.addEntity(new Door(handler, 100, 0, fieldWorld));
-
+        
+        
         
 
 
@@ -61,10 +68,8 @@ public class CaveWorld extends BaseWorld{
         entityManager.getPlayer().setX(spawnX);
         entityManager.getPlayer().setY(spawnY);
     }
-    
-//    public CaveWorld(Handler handler, String path, Player player) {
-//        super(handler,path,player);
-//        this.handler = handler;
-//        this.player=player;
+    public void summonComp(){
+    	entityManager.addEntity(new CompanionEntity(handler, 400, 600));
+        }
 
 }

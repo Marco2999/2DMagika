@@ -5,6 +5,7 @@ import Game.GameStates.MenuState;
 import Game.GameStates.PauseState;
 import Game.GameStates.GameOverState;
 import Game.GameStates.State;
+import Game.GameStates.VictoryState;
 import Inputs.KeyManager;
 import Inputs.MouseManager;
 import Resources.GameCamera;
@@ -39,7 +40,7 @@ public class Game implements Runnable {
     public State menuState;
     public State pauseState;
     public State gameOverState;
-//  public State victoryState;
+  public State victoryState;
 
 
     //Input
@@ -90,11 +91,11 @@ public class Game implements Runnable {
         handler = new Handler(this);
         gameCamera = new GameCamera(handler, 0, 0);
 
-        gameState = new GameState(handler);
+//        gameState = new GameState(handler);
         menuState = new MenuState(handler);
         pauseState = new PauseState(handler);
         gameOverState = new GameOverState(handler);
-//      victoryState = new VictoryState(handler);
+        victoryState = new VictoryState(handler);
 
         State.setState(menuState);
 

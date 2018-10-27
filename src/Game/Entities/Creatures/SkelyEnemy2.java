@@ -1,7 +1,6 @@
 package Game.Entities.Creatures;
 
 import Game.Entities.EntityBase;
-import Game.GameStates.State;
 import Game.Inventories.Inventory;
 import Game.Items.Item;
 import Main.Handler;
@@ -14,7 +13,7 @@ import java.util.Random;
 /**
  * Created by Elemental on 2/7/2017.
  */
-public class BossEnemy extends CreatureBase  {
+public class SkelyEnemy2 extends CreatureBase  {
 
 
     private Animation animDown, animUp, animLeft, animRight;
@@ -22,21 +21,21 @@ public class BossEnemy extends CreatureBase  {
     private Boolean attacking=false;
 
     private int animWalkingSpeed = 150;
-    private Inventory BossInventory;
-    private Rectangle BossCam;
+    private Inventory Skelyinventory;
+    private Rectangle SkelyCam;
 
-    private int healthcounter=0;
+    private int healthcounter =0;
 
     private Random randint;
     private int moveCount=0;
     private int direction;
     
-//	No regeneration for boss
-//    private int skelyRegenCounter = 0;
+
+    private int skelyRegenCounter = 0;
 
     
 
-    public BossEnemy(Handler handler, float x, float y) {
+    public SkelyEnemy2(Handler handler, float x, float y) {
     	
     	
         super(handler, x, y, CreatureBase.DEFAULT_CREATURE_WIDTH, CreatureBase.DEFAULT_CREATURE_HEIGHT);
@@ -44,22 +43,22 @@ public class BossEnemy extends CreatureBase  {
         bounds.y=18*2;
         bounds.width=16*2;
         bounds.height=14*2;
-        speed= 2f;
-        health=100;
+        speed=1.5f;
+        health=50;
 
-        BossCam= new Rectangle();
+        SkelyCam= new Rectangle();
 
 
 
         randint = new Random();
         direction = randint.nextInt(4) + 1;
 
-        animDown = new Animation(animWalkingSpeed, Images.Boss_front);
-        animLeft = new Animation(animWalkingSpeed,Images.Boss_left);
-        animRight = new Animation(animWalkingSpeed,Images.Boss_right);
-        animUp = new Animation(animWalkingSpeed,Images.Boss_back);
+        animDown = new Animation(animWalkingSpeed, Images.SkelyEnemy_front);
+        animLeft = new Animation(animWalkingSpeed,Images.SkelyEnemy_left);
+        animRight = new Animation(animWalkingSpeed,Images.SkelyEnemy_right);
+        animUp = new Animation(animWalkingSpeed,Images.SkelyEnemy_back);
 
-        BossInventory= new Inventory(handler);
+        Skelyinventory= new Inventory(handler);
     }
     //Font stringfont = new Font("SansSerif",Font.PLAIN, 20);
 
@@ -79,11 +78,10 @@ public class BossEnemy extends CreatureBase  {
 
         move();
 
-        
+
         if(isBeinghurt()){
-        	//skelyRegenCounter = 0;
+        	skelyRegenCounter = 0;
             healthcounter++;
-            
             if(healthcounter>=120){
                 setBeinghurt(false);
                 System.out.print(isBeinghurt());
@@ -92,19 +90,19 @@ public class BossEnemy extends CreatureBase  {
         if(healthcounter>=120&& !isBeinghurt()){
             healthcounter=0;
         }
-        // The Boss will not regenerate
-//        if(!isBeinghurt()) {
-//        	skelyRegenCounter++;
-//        	if(skelyRegenCounter >= 500 && health < 50) {
-//        		health++;
-//        	}
-//        	
-//        	
-//        }
+        
+        if(!isBeinghurt()) {
+        	skelyRegenCounter++;
+        	if(skelyRegenCounter >= 500 && health < 50) {
+        		health++;
+        	}
+        	
+        	
+        }
         
 
 
-        BossInventory.tick();
+        Skelyinventory.tick();
         
         
 
@@ -116,13 +114,13 @@ public class BossEnemy extends CreatureBase  {
         xMove = 0;
         yMove = 0;
 
-        BossCam.x = (int) (x - handler.getGameCamera().getxOffset() - (64 * 3));
-        BossCam.y = (int) (y - handler.getGameCamera().getyOffset() - (64 * 3));
-        BossCam.width = 64 * 7;
-        BossCam.height = 64 * 7;
+        SkelyCam.x = (int) (x - handler.getGameCamera().getxOffset() - (64 * 3));
+        SkelyCam.y = (int) (y - handler.getGameCamera().getyOffset() - (64 * 3));
+        SkelyCam.width = 64 * 7;
+        SkelyCam.height = 64 * 7;
 
-        if (BossCam.contains(handler.getWorld().getEntityManager().getPlayer().getX() - handler.getGameCamera().getxOffset(), handler.getWorld().getEntityManager().getPlayer().getY() - handler.getGameCamera().getyOffset())
-                || BossCam.contains(handler.getWorld().getEntityManager().getPlayer().getX() - handler.getGameCamera().getxOffset() + handler.getWorld().getEntityManager().getPlayer().getWidth(), handler.getWorld().getEntityManager().getPlayer().getY() - handler.getGameCamera().getyOffset() + handler.getWorld().getEntityManager().getPlayer().getHeight())) {
+        if (SkelyCam.contains(handler.getWorld().getEntityManager().getPlayer().getX() - handler.getGameCamera().getxOffset(), handler.getWorld().getEntityManager().getPlayer().getY() - handler.getGameCamera().getyOffset())
+                || SkelyCam.contains(handler.getWorld().getEntityManager().getPlayer().getX() - handler.getGameCamera().getxOffset() + handler.getWorld().getEntityManager().getPlayer().getWidth(), handler.getWorld().getEntityManager().getPlayer().getY() - handler.getGameCamera().getyOffset() + handler.getWorld().getEntityManager().getPlayer().getHeight())) {
 
             Rectangle cb = getCollisionBounds(0, 0);
             Rectangle ar = new Rectangle();
@@ -201,34 +199,29 @@ public class BossEnemy extends CreatureBase  {
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(getCurrentAnimationFrame(animDown,animUp,animLeft,animRight,Images.Boss_front,Images.Boss_back,Images.Boss_left,Images.Boss_right), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+    	
+        g.drawImage(getCurrentAnimationFrame(animDown,animUp,animLeft,animRight,Images.SkelyEnemy_front,Images.SkelyEnemy_back,Images.SkelyEnemy_left,Images.SkelyEnemy_right), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
         
-        g.setColor(Color.ORANGE);
-        g.drawRect((int)(x-handler.getGameCamera().getxOffset()-20),(int)(y-handler.getGameCamera().getyOffset()-21),101,15);
-        //Boss Name
-        g.setColor(Color.RED);
-        g.drawRect((int)(x-handler.getGameCamera().getxOffset()+7),(int)(y-handler.getGameCamera().getyOffset()-33),51,15);
-        g.fillRect((int)(x-handler.getGameCamera().getxOffset()+7),(int)(y-handler.getGameCamera().getyOffset()-33),51,14);
-        if(this.getHealth()>50){
+        g.setColor(Color.BLACK);
+        g.drawRect((int)(x-handler.getGameCamera().getxOffset()-1),(int)(y-handler.getGameCamera().getyOffset()-21),51,11);
+        if(this.getHealth()>35){
             g.setColor(Color.GREEN);
-            g.fillRect((int)(x-handler.getGameCamera().getxOffset()-19),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),14);
+            g.fillRect((int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),10);
 
         }else if(this.getHealth()>=15 && getHealth()<=50){
             g.setColor(Color.YELLOW);
-            g.fillRect((int)(x-handler.getGameCamera().getxOffset()-19),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),14);
+            g.fillRect((int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),10);
 
         }else if(this.getHealth() < 15){
             g.setColor(Color.RED);
-            g.fillRect((int)(x-handler.getGameCamera().getxOffset()-19),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),14);
+            g.fillRect((int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-20),getHealth(),10);
 
         }  
-        Font stringfont = new Font("SansSerif",Font.PLAIN, 13);
+        Font stringfont = new Font("SansSerif",Font.PLAIN, 10);
         g.setFont(stringfont);
-        g.setColor(Color.black);
-        g.drawString("Sasuke",(int)(x-handler.getGameCamera().getxOffset()+13),(int)(y-handler.getGameCamera().getyOffset()-22));
         g.setColor(Color.white);
-        g.drawString("Boss Health: " + getHealth(),(int)(x-handler.getGameCamera().getxOffset()-18.5),(int)(y-handler.getGameCamera().getyOffset()-8));
-
+      
+        g.drawString("Health: " + getHealth(),(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-11));        
         }
     
 
@@ -238,8 +231,7 @@ public class BossEnemy extends CreatureBase  {
     @Override
     public void die() {
     	handler.getWorld().getItemManager().addItem(Item.Coin.createNew((int)x + bounds.x,(int)y + bounds.y,1));
-    	handler.getWorld().getItemManager().addItem(Item.Key.createNew((int)x + bounds.x+50,(int)y + bounds.y,1));
-    	State.setState(handler.getGame().victoryState);
-    	State.setState(handler.getGame().menuState);
+    	handler.getWorld().getItemManager().addItem(Item.Ramen.createNew((int)x + bounds.x+50,(int)y + bounds.y,1));
+    	
     }
 }

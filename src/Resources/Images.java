@@ -347,7 +347,7 @@ public class Images {
             Companion_back[2]=newsheet.crop(196,227+130,width,height);
             Companion_back[3]=newsheet.crop(228,227+130,28,height);
             
-            //Humanoid Dynamic Hina-chan
+
             HumanDynamic_front=newsheet.crop(260,131,28,height);
             
             //Entity for CaveWorld Sakura-chan
@@ -379,9 +379,13 @@ public class Images {
             items[2]= ItemsSheet.crop(32,0, 32, 32);//Slingshot
             items[3]= ItemsSheet.crop(64, 0, 32, 32);//Coin
             items[4]= ItemsSheet.crop(96, 0, 32, 32);//Key
+
+            items[5]= ItemsSheet.crop(96, 0, 32, 32);
+
             items[5]= ItemsSheet.crop(165, 0, 32, 32);//Seal
             items[6]= ItemsSheet.crop(230, 0, 32, 32);//Scroll
             items[7]= ItemsSheet.crop(195, 0, 32, 32);//Ramen
+
 
         } catch (IOException e) {
             e.printStackTrace();

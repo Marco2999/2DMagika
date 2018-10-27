@@ -1,7 +1,10 @@
 package Worlds;
 import Game.Entities.Creatures.BossEnemy;
 import Game.Entities.Creatures.Player;
+import Game.Entities.Creatures.QuestHumanoid;
+import Game.Entities.Creatures.SecondQuestHumanoid;
 import Game.Entities.Creatures.SkelyEnemy;
+import Game.Entities.Creatures.SkelyEnemy2;
 import Game.Entities.Statics.CoinBlock;
 import Game.Entities.Statics.Door;
 import Game.Entities.Statics.Rock;
@@ -20,31 +23,46 @@ public class fieldWorld extends BaseWorld{
         super(handler,path,player);
         this.handler = handler;
 
-        entityManager.addEntity(new Tree(handler, 100, 250));
-        entityManager.addEntity(new Rock(handler, 100, 450));
-        entityManager.addEntity(new Tree(handler, 533, 276));
-        entityManager.addEntity(new Rock(handler, 684, 1370));
-        entityManager.addEntity(new Tree(handler, 765, 888));
-        entityManager.addEntity(new Rock(handler, 88, 1345));
-        entityManager.addEntity(new Tree(handler, 77, 700));
-        entityManager.addEntity(new Rock(handler, 700, 150));       
+        entityManager.addEntity(new Tree(handler, 200, 250));
+        entityManager.addEntity(new Rock(handler, 300, 450));
+        entityManager.addEntity(new Tree(handler, 633, 276));
+        entityManager.addEntity(new Rock(handler, 784, 1370));
+        entityManager.addEntity(new Tree(handler, 565, 888));
+        entityManager.addEntity(new Rock(handler, 188, 1345));
+        entityManager.addEntity(new Tree(handler, 657, 700));
+        entityManager.addEntity(new Rock(handler, 300, 150));       
         entityManager.addEntity(new Rock(handler, 1350, 770));
         entityManager.addEntity(new Rock(handler, 1412, 770));
+        
+        entityManager.addEntity(new SecondQuestHumanoid(handler, 650, 50));
+        entityManager.addEntity(new SkelyEnemy2(handler, 400, 400));
+        entityManager.addEntity(new SkelyEnemy2(handler, 700, 600));
+        entityManager.addEntity(new SkelyEnemy2(handler, 300, 370));
+        entityManager.addEntity(new SkelyEnemy2(handler, 350, 300));
+        entityManager.addEntity(new SkelyEnemy2(handler, 200, 700));
+        entityManager.addEntity(new SkelyEnemy2(handler, 600, 600));
+        entityManager.addEntity(new SkelyEnemy2(handler, 700, 600));
+        entityManager.addEntity(new SkelyEnemy2(handler, 500, 600));
+        entityManager.addEntity(new SkelyEnemy2(handler, 400, 600));
+        
+
        // entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
         entityManager.addEntity(new BossEnemy(handler, 1400, 500));;
-        
+
+        entityManager.addEntity(new Rock(handler, 1475, 770));
+        //entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
+       
         
         
         // Coin Blocks
-        entityManager.addEntity(new CoinBlock(handler, 200, 250));
-        entityManager.addEntity(new CoinBlock(handler, 350, 400));
-        entityManager.addEntity(new CoinBlock(handler, 500, 700));
-        entityManager.addEntity(new CoinBlock(handler, 832, 128));
-        entityManager.addEntity(new CoinBlock(handler, 1000, 900));
+        entityManager.addEntity(new CoinBlock(handler, 400, 250));
+        entityManager.addEntity(new CoinBlock(handler, 650, 300));
+        entityManager.addEntity(new CoinBlock(handler, 550, 500));
+        entityManager.addEntity(new CoinBlock(handler, 732, 528));
+        entityManager.addEntity(new CoinBlock(handler, 990, 900));
         
-//        entityManager.addEntity(new CactusBlock(handler, 1475, 770));
-//        entityManager.addEntity(new CactusBlock(handler, 310, 69));
-        
+
+
 
 
 
@@ -52,10 +70,6 @@ public class fieldWorld extends BaseWorld{
         entityManager.getPlayer().setY(spawnY);
     }
     
-//    
-//    public CaveWorld(Handler handler, String path, Player player) {
-//        super(handler,path,player);
-//        this.handler = handler;
-//        this.player=player;
+
 
 }
