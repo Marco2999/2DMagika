@@ -37,6 +37,7 @@ public class CaveWorld extends BaseWorld{
         entityManager.addEntity(new Rock(handler, 1350, 770));
         entityManager.addEntity(new Rock(handler, 1412, 770));
         entityManager.addEntity(new Rock(handler, 1475, 770));
+//        entityManager.addEntity(new CactusBlock(handler, 400, 20));
 //        entityManager.addEntity(new Door(handler, 100, 0, fieldWorld));
         entityManager.addEntity(new SecondQuestHumanoid(handler, 650, 50));
         entityManager.addEntity(new SkelyEnemy(handler, 200, 300));
