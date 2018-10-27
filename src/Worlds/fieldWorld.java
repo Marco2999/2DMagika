@@ -1,12 +1,12 @@
 package Worlds;
 import Game.Entities.Creatures.BossEnemy;
 import Game.Entities.Creatures.Player;
-import Game.Entities.Creatures.QuestHumanoid;
 import Game.Entities.Creatures.SkelyEnemy;
 import Game.Entities.Statics.CoinBlock;
 import Game.Entities.Statics.Door;
 import Game.Entities.Statics.Rock;
 import Game.Entities.Statics.Tree;
+//import Game.Entities.Statics.CactusBlock;
 import Main.Handler;
 
 /**
@@ -30,11 +30,8 @@ public class fieldWorld extends BaseWorld{
         entityManager.addEntity(new Rock(handler, 700, 150));       
         entityManager.addEntity(new Rock(handler, 1350, 770));
         entityManager.addEntity(new Rock(handler, 1412, 770));
-        entityManager.addEntity(new Rock(handler, 1475, 770));
        // entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
-        entityManager.addEntity(new BossEnemy(handler, 1400, 500));
-        entityManager.addEntity(new QuestHumanoid(handler, 650, 50));
-        entityManager.addEntity(new SkelyEnemy(handler, 200, 300));
+        entityManager.addEntity(new BossEnemy(handler, 1400, 500));;
         
         
         
@@ -45,7 +42,8 @@ public class fieldWorld extends BaseWorld{
         entityManager.addEntity(new CoinBlock(handler, 832, 128));
         entityManager.addEntity(new CoinBlock(handler, 1000, 900));
         
-
+//        entityManager.addEntity(new CactusBlock(handler, 1475, 770));
+//        entityManager.addEntity(new CactusBlock(handler, 310, 69));
         
 
 

@@ -257,7 +257,7 @@ public class Images {
             blocks[16] = newsheet.crop(328,0,Bwidth,Bheight);//Water Tile
             blocks[17] = newsheet.crop(326,38,Bwidth,Bheight);//Grassy Tile
             
-//            blocks[18] = newsheet.crop(149,482,Bwidth,Bheight);//Cactus
+//            blocks[18] = newsheet.crop(150,484,Bwidth,Bheight);//Cactus
 //            blocks[19] = newsheet.crop(116,491,Bwidth,Bheight);//Ball
             
 

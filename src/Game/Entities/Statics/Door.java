@@ -2,6 +2,7 @@ package Game.Entities.Statics;
 
 import Game.Entities.Creatures.Player;
 import Game.Entities.Creatures.QuestHumanoid;
+import Game.Entities.Creatures.SecondQuestHumanoid;
 import Game.GameStates.State;
 import Main.Handler;
 import Resources.Images;
@@ -65,7 +66,11 @@ public class Door extends StaticEntity {
             	g.setColor(Color.RED);
             	checkForPlayer(g, handler.getWorld().getEntityManager().getPlayer());
             }
-    	
+       	    if(SecondQuestHumanoid.neededCoins==0 && SecondQuestHumanoid.neededRamen==0 && alreadymade==0) {
+	         	g.drawImage(Images.door,(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()),width,height,null);
+	         	g.setColor(Color.RED);
+	         	checkForPlayer(g, handler.getWorld().getEntityManager().getPlayer());
+         }
     }
 
         

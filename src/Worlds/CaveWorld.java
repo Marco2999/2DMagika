@@ -24,7 +24,7 @@ public class CaveWorld extends BaseWorld{
     public CaveWorld(Handler handler, String path, Player player){
         super(handler,path,player);
         this.handler = handler;
-        fieldWorld = new fieldWorld(handler,"res/Maps/fieldMap.map",player);
+        fieldWorld = new fieldWorld(handler,"res/Maps/caveMap.map",player);
 
 //        entityManager.addEntity(new Tree(handler, 100, 250));
 //        entityManager.addEntity(new Rock(handler, 100, 450));
