@@ -64,7 +64,7 @@ public class Images {
 
     public Images() {
 
-        SpriteSheet newsheet = new SpriteSheet(Images.loadImage("/Sheets/NSpriteSHeet6.png"));
+        SpriteSheet newsheet = new SpriteSheet(Images.loadImage("/Sheets/NSpriteSheet9.png"));
         SpriteSheet numsheet = new SpriteSheet(Images.loadImage("/Sheets/numsheet.png"));
         SpriteSheet runesheet = new SpriteSheet(Images.loadImage("/Sheets/runes.png"));
         SpriteSheet FireBallsheet = new SpriteSheet(Images.loadImage("/Sheets/FireBall.png"));
@@ -73,7 +73,7 @@ public class Images {
         SpriteSheet FireBallDownsheet = new SpriteSheet(Images.loadImage("/Sheets/FireBallDown.png"));
         
         //Custom Items Sheet
-        SpriteSheet ItemsSheet = new SpriteSheet(Images.loadImage("/Sheets/ItemsSpriteSheet.png"));
+        SpriteSheet ItemsSheet = new SpriteSheet(Images.loadImage("/Sheets/ItemsSpriteSheet2.png"));
 
 
 
@@ -243,7 +243,11 @@ public class Images {
             blocks[14] = newsheet.crop(174,410,78,74);//rock
             
             blocks[15] = newsheet.crop(256,0,Bwidth,Bheight);//Coin Tile
-
+            
+            blocks[16] = newsheet.crop(328,0,Bwidth,Bheight);//Water Tile
+            blocks[17] = newsheet.crop(326,38,Bwidth,Bheight);//Grassy Tile
+            blocks[18] = newsheet.crop(251,81,Bwidth,Bheight);//Seal
+            
 
             //player anim
             player_front[0]=newsheet.crop(132,131,width,height);
@@ -311,9 +315,6 @@ public class Images {
             
             //Humanoid Dynamic Hina-chan
             HumanDynamic_front=newsheet.crop(260,131,28,height);
-//            HumanDynamic_front[1]=newsheet.crop(260,131,28,height);
-//            HumanDynamic_front[2]=newsheet.crop(260,131,28,height);
-//            HumanDynamic_front[3]=newsheet.crop(260,131,28,height);
             
             // Boss Sasuke
             Boss_front[0]=newsheet.crop(260,131+130,width,height);
@@ -337,10 +338,13 @@ public class Images {
             Boss_back[3]=newsheet.crop(356,227+130,28,height);
             
             //Custom items
-            items[1]= ItemsSheet.crop(0,0, 32, 32);//Apple
+            items[1]= ItemsSheet.crop(0,0, 32, 32);//Heal Apple
             items[2]= ItemsSheet.crop(32,0, 32, 32);//Slingshot
             items[3]= ItemsSheet.crop(64, 0, 32, 32);//Coin
             items[4]= ItemsSheet.crop(96, 0, 32, 32);//Key
+            items[5]= ItemsSheet.crop(165, 0, 32, 32);//Seal
+            items[6]= ItemsSheet.crop(230, 0, 32, 32);//Scroll
+            items[7]= ItemsSheet.crop(195, 0, 32, 32);//Ramen
 
         } catch (IOException e) {
             e.printStackTrace();
