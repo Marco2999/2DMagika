@@ -18,7 +18,7 @@ import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 /**
  * Created by Elemental on 2/7/2017.
  */
-public class QuestHumanoid extends CreatureBase  {
+public class SecondQuestHumanoid extends CreatureBase  {
 
     private Inventory questerinventory;
     private Rectangle SkelyCam;
@@ -32,10 +32,10 @@ public class QuestHumanoid extends CreatureBase  {
     public int displaycd =0;
     
     public int coinRemember=0;
-    public static int neededCoins =3; 
-    public static int neededKey=1;
+    public static int neededCoins=6; 
+    public static int neededRamen=1;
 
-    public QuestHumanoid(Handler handler, float x, float y) {
+    public SecondQuestHumanoid(Handler handler, float x, float y) {
     	
     	
         super(handler, x, y, CreatureBase.DEFAULT_CREATURE_WIDTH, CreatureBase.DEFAULT_CREATURE_HEIGHT);
@@ -85,7 +85,7 @@ public class QuestHumanoid extends CreatureBase  {
 
     @Override
     public void render(Graphics g) {
-    	g.drawImage(Images.HumanDynamic_front,(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()),width,height,null);
+    	g.drawImage(Images.Sakura_front,(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()),width,height,null);
     	
     	
     	if(isBeinghurt()) {
@@ -97,11 +97,11 @@ public class QuestHumanoid extends CreatureBase  {
     				if(neededCoins < 0) {
     					neededCoins =0;
     				}
-    			}else if(item.getName()=="Key") {    				
-    				neededKey = neededKey - item.getCount();
+    			}else if(item.getName()=="Ramen") {    				
+    				neededRamen = neededRamen - item.getCount();
     				item.setCount(0);
-    				if(neededKey < 0) {
-    					neededKey=0;
+    				if(neededRamen < 0) {
+    					neededRamen=0;
     				}
     			}  		
     		}
@@ -115,11 +115,11 @@ public class QuestHumanoid extends CreatureBase  {
     		g.drawRect((int) (x - handler.getGameCamera().getxOffset()-60), (int) (y - handler.getGameCamera().getyOffset())+28, 35, 35);
     		g.drawString(Integer.toString(neededCoins), (int) (x - handler.getGameCamera().getxOffset())-45, (int) (y - handler.getGameCamera().getyOffset())+75);
     		//Draw quest key
-    		g.drawImage(Item.Key.getTexture(),(int) (x - handler.getGameCamera().getxOffset())+69, (int) (y - handler.getGameCamera().getyOffset())+30, 32, 32, null);
+    		g.drawImage(Item.Ramen.getTexture(),(int) (x - handler.getGameCamera().getxOffset())+69, (int) (y - handler.getGameCamera().getyOffset())+30, 32, 32, null);
     		g.drawRect((int) (x - handler.getGameCamera().getxOffset()+68), (int) (y - handler.getGameCamera().getyOffset())+28, 35, 35);
-    		g.drawString(Integer.toString(neededKey), (int) (x - handler.getGameCamera().getxOffset())+82, (int) (y - handler.getGameCamera().getyOffset())+75);
+    		g.drawString(Integer.toString(neededRamen), (int) (x - handler.getGameCamera().getxOffset())+82, (int) (y - handler.getGameCamera().getyOffset())+75);
     		///Quest Text
-    		g.drawString("Please deliver these items to me, Naruto-kun!",(int)(x-handler.getGameCamera().getxOffset())-68,(int)(y-handler.getGameCamera().getyOffset()-30));
+    		g.drawString("Please deliver these items to me, Naruto-Baka!",(int)(x-handler.getGameCamera().getxOffset())-68,(int)(y-handler.getGameCamera().getyOffset()-30));
     	}
         g.setColor(Color.BLUE);
         g.drawRect((int)(x-handler.getGameCamera().getxOffset()-1),(int)(y-handler.getGameCamera().getyOffset()-21),51,11);
@@ -130,7 +130,7 @@ public class QuestHumanoid extends CreatureBase  {
         g.setFont(stringfont);
         g.setColor(Color.BLACK);
       
-        g.drawString("Hinata",(int)(x-handler.getGameCamera().getxOffset())+10,(int)(y-handler.getGameCamera().getyOffset()-11));
+        g.drawString("Sakura",(int)(x-handler.getGameCamera().getxOffset())+10,(int)(y-handler.getGameCamera().getyOffset()-11));
         
     }
     

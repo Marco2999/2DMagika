@@ -13,14 +13,14 @@ import Main.Handler;
  */
 public class World1 extends BaseWorld{
     private Handler handler;
-    private BaseWorld caveWorld;
+    private BaseWorld CaveWorld;
     public int checkdoor=0;
     private int alreadymade=0;
 
     public World1(Handler handler, String path, Player player){
         super(handler,path,player);
         this.handler = handler;
-        caveWorld = new CaveWorld(handler,"res/Maps/caveMap.map",player);
+        CaveWorld = new CaveWorld(handler,"res/Maps/caveMap.map",player);
 
         entityManager.addEntity(new Tree(handler, 100, 250));
         entityManager.addEntity(new Rock(handler, 100, 450));
@@ -48,7 +48,7 @@ public class World1 extends BaseWorld{
         entityManager.addEntity(new CoinBlock(handler, 1000, 900));
 
 
-        entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
+        entityManager.addEntity(new Door(handler, 100, 0,CaveWorld));
         
 
         

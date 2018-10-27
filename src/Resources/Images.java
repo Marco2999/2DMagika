@@ -24,7 +24,12 @@ public class Images {
     public static BufferedImage[] SkelyEnemy_left;
     public static BufferedImage[] SkelyEnemy_front;
     public static BufferedImage[] SkelyEnemy_back;
+    public static BufferedImage[] CreepEnemy_right;
+    public static BufferedImage[] CreepEnemy_left;
+    public static BufferedImage[] CreepEnemy_front;
+    public static BufferedImage[] CreepEnemy_back;
     public static BufferedImage HumanDynamic_front;
+    public static BufferedImage Sakura_front;
     public static BufferedImage[] Boss_front;
     public static BufferedImage[] Boss_back;
     public static BufferedImage[] Boss_right;
@@ -64,7 +69,7 @@ public class Images {
 
     public Images() {
 
-        SpriteSheet newsheet = new SpriteSheet(Images.loadImage("/Sheets/NSpriteSheet9.png"));
+        SpriteSheet newsheet = new SpriteSheet(Images.loadImage("/Sheets/NSpriteSheet11.png"));
         SpriteSheet numsheet = new SpriteSheet(Images.loadImage("/Sheets/numsheet.png"));
         SpriteSheet runesheet = new SpriteSheet(Images.loadImage("/Sheets/runes.png"));
         SpriteSheet FireBallsheet = new SpriteSheet(Images.loadImage("/Sheets/FireBall.png"));
@@ -93,6 +98,11 @@ public class Images {
         SkelyEnemy_right = new BufferedImage[4];
         SkelyEnemy_front = new BufferedImage[4];
         SkelyEnemy_back = new BufferedImage[4];
+        
+        CreepEnemy_left = new BufferedImage[4];
+        CreepEnemy_right = new BufferedImage[4];
+        CreepEnemy_front = new BufferedImage[4];
+        CreepEnemy_back = new BufferedImage[4];
 
         Boss_left = new BufferedImage[4];
         Boss_right = new BufferedImage[4];
@@ -250,11 +260,16 @@ public class Images {
             
 
             //player anim
-            player_front[0]=newsheet.crop(132,131,width,height);
-            player_front[1]=newsheet.crop(164,131,width,height);
-            player_front[2]=newsheet.crop(196,131,width,height);
-            player_front[3]=newsheet.crop(228,131,28,height);
+//            player_front[0]=newsheet.crop(132,131,width,height);
+//            player_front[1]=newsheet.crop(164,131,width,height);
+//            player_front[2]=newsheet.crop(196,131,width,height);
+//            player_front[3]=newsheet.crop(228,131,28,height);
 
+           player_front[0]=newsheet.crop(526,131+130,width,height);
+            player_front[1]=newsheet.crop(558,253,width,height);
+            player_front[2]=newsheet.crop(590,253,width,height);
+            player_front[3]=newsheet.crop(622,253,28,height);
+            
             player_left[0]=newsheet.crop(132,163,width,height);
             player_left[1]=newsheet.crop(164,163,width,height);
             player_left[2]=newsheet.crop(196,163,width,height);
@@ -292,6 +307,28 @@ public class Images {
             SkelyEnemy_back[2]=newsheet.crop(452,378,width,height);
             SkelyEnemy_back[3]=newsheet.crop(484,378,28,height);
             
+//Creep Enemy
+            
+            CreepEnemy_front[0]=newsheet.crop(388,253,width,height);
+            CreepEnemy_front[1]=newsheet.crop(420,253,width,height);
+            CreepEnemy_front[2]=newsheet.crop(452,253,width,height);
+            CreepEnemy_front[3]=newsheet.crop(484,253,28,height);
+            
+            CreepEnemy_left[0]=newsheet.crop(388,296,width,height);
+            CreepEnemy_left[1]=newsheet.crop(420,296,width,height);
+            CreepEnemy_left[2]=newsheet.crop(452,296,width,height);
+            CreepEnemy_left[3]=newsheet.crop(484,296,28,height);
+
+            CreepEnemy_right[0]=newsheet.crop(388,336,width,height);
+            CreepEnemy_right[1]=newsheet.crop(420,336,width,height);
+            CreepEnemy_right[2]=newsheet.crop(452,336,width,height);
+            CreepEnemy_right[3]=newsheet.crop(484,336,28,height);
+
+            CreepEnemy_back[0]=newsheet.crop(388,378,width,height);
+            CreepEnemy_back[1]=newsheet.crop(420,378,width,height);
+            CreepEnemy_back[2]=newsheet.crop(452,378,width,height);
+            CreepEnemy_back[3]=newsheet.crop(484,378,28,height);
+            
             // Companion Rock Lee
             Companion_front[0]=newsheet.crop(132,131+130,width,height);
             Companion_front[1]=newsheet.crop(164,131+130,width,height);
@@ -315,6 +352,9 @@ public class Images {
             
             //Humanoid Dynamic Hina-chan
             HumanDynamic_front=newsheet.crop(260,131,28,height);
+            
+            //Entity for CaveWorld Sakura-chan
+            Sakura_front=newsheet.crop(292,131,28,height);
             
             // Boss Sasuke
             Boss_front[0]=newsheet.crop(260,131+130,width,height);
