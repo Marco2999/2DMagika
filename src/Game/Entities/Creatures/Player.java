@@ -88,16 +88,31 @@ public class Player extends CreatureBase {
     @Override
     public void tick() {
     	// Attack Increase
+    	 OneofEachTimer += System.currentTimeMillis() - lastItemTimer;
+         lastItemTimer = System.currentTimeMillis();
+         if(OneofEachTimer < OneofEachCooldown) {
+             return;
+         }
+         
+         if(handler.getKeyManager().OneofEach) {
+        	 inventory.addItem(new Item(Images.items[0],"Wood",0));
+         	inventory.addItem(new Item(Images.items[3], "Coin", 5));
+         	inventory.addItem(new Item(Images.items[1],"Apple",3));
+        	inventory.addItem(new Item(Images.items[2], "Slingshot", 4));
+         	inventory.addItem(new Item(Images.blocks[14],"Rock",1));
+         	inventory.addItem(new Item(Images.Runes[2],"Fire Rune",2));
+         	inventory.addItem(new Item(Images.items[4], "Key", 6));
+         	
+         
     	for (Item i : getInventory().getInventoryItems()) {
             if (i.getName() == "Slingshot") {
-            	this.attack = 2 + i.getCount();
+            	attack = 2 + i.getCount();
             }
+
+            	OneofEachTimer = 0;
+            } 
     	}
-//    	if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_C){
-//			World1.class.entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
-//			World1.super()
-//	}
-    	
+
     	
         //Animations
         animDown.tick();
@@ -157,12 +172,6 @@ public class Player extends CreatureBase {
         	}
         }
         
-	    // Next World WIP
-	 //   if(handler.getKeyManager().nextWorldKey) {
-	    	
-	  //  }
-
-
         //Inventory
         inventory.tick();
 
@@ -294,11 +303,11 @@ public class Player extends CreatureBase {
         }
 
     }
-
+    
     @Override
     public void die(){
         System.out.println("You lose");
-        State.setState(handler.getGame().menuState);
+        State.setState(handler.getGame().gameOverState);
     }
 
     private void getInput(){

@@ -27,6 +27,7 @@ public abstract class CreatureBase extends EntityBase {
     protected float xMove, yMove;
 
     protected long lastAttackTimer, attackCooldown = 800, attackTimer = attackCooldown;
+    protected long OneofEachTimer, OneofEachCooldown = 800, lastItemTimer = OneofEachCooldown;
 
     protected boolean ld=true,ll=false,lr=false,lu=false;
 

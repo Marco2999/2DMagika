@@ -15,6 +15,7 @@ public class KeyManager implements KeyListener {
 	public boolean appleHeal=false;
 
 	public boolean nextWorldKey=false;
+	public boolean OneofEach=false;
 	
 	public boolean appearDoor=false;
 
@@ -72,6 +73,8 @@ public class KeyManager implements KeyListener {
 		//Summon Door test
 		appearDoor = keys[KeyEvent.VK_Y];
 	
+		// One of Each "X" Key
+		OneofEach = keys[KeyEvent.VK_X];
 
 	}
 

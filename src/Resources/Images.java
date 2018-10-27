@@ -24,17 +24,29 @@ public class Images {
     public static BufferedImage[] SkelyEnemy_left;
     public static BufferedImage[] SkelyEnemy_front;
     public static BufferedImage[] SkelyEnemy_back;
+    public static BufferedImage HumanDynamic_front;
+    public static BufferedImage[] Boss_front;
+    public static BufferedImage[] Boss_back;
+    public static BufferedImage[] Boss_right;
+    public static BufferedImage[] Boss_left;
+    public static BufferedImage[] Companion_right;
+    public static BufferedImage[] Companion_left;
+    public static BufferedImage[] Companion_front;
+    public static BufferedImage[] Companion_back;
     public static BufferedImage[] butstart;
     public static BufferedImage[] particleSmoke;
     public static BufferedImage[] items;
     public static BufferedImage[] numbers;
     public static BufferedImage inventory;
     public static BufferedImage title;
+    public static BufferedImage GameOver;
+    public static BufferedImage Victory;
     public static BufferedImage door;
     public static BufferedImage E;
     public static BufferedImage EP;
     public static BufferedImage Pause;
     public static BufferedImage[] Resume;
+    public static BufferedImage[] BRestart;
     public static BufferedImage[] BTitle;
     public static BufferedImage[] Options;
     public static BufferedImage[] Runes;
@@ -52,7 +64,7 @@ public class Images {
 
     public Images() {
 
-        SpriteSheet newsheet = new SpriteSheet(Images.loadImage("/Sheets/SpriteSheet.png"));
+        SpriteSheet newsheet = new SpriteSheet(Images.loadImage("/Sheets/NSpriteSHeet6.png"));
         SpriteSheet numsheet = new SpriteSheet(Images.loadImage("/Sheets/numsheet.png"));
         SpriteSheet runesheet = new SpriteSheet(Images.loadImage("/Sheets/runes.png"));
         SpriteSheet FireBallsheet = new SpriteSheet(Images.loadImage("/Sheets/FireBall.png"));
@@ -77,6 +89,21 @@ public class Images {
         SkelyEnemy_front = new BufferedImage[4];
         SkelyEnemy_back = new BufferedImage[4];
 
+        SkelyEnemy_left = new BufferedImage[4];
+        SkelyEnemy_right = new BufferedImage[4];
+        SkelyEnemy_front = new BufferedImage[4];
+        SkelyEnemy_back = new BufferedImage[4];
+
+        Boss_left = new BufferedImage[4];
+        Boss_right = new BufferedImage[4];
+        Boss_front = new BufferedImage[4];
+        Boss_back = new BufferedImage[4];
+        
+        Companion_left = new BufferedImage[4];
+        Companion_right = new BufferedImage[4];
+        Companion_front = new BufferedImage[4];
+        Companion_back = new BufferedImage[4];
+        
         butstart = new BufferedImage[3];
         particleSmoke = new BufferedImage[3];
         items = new BufferedImage[10];
@@ -84,6 +111,7 @@ public class Images {
         Resume = new BufferedImage[2];
         BTitle = new BufferedImage[2];
         Options = new BufferedImage[2];
+        BRestart = new BufferedImage[2];
         Runes = new BufferedImage[36];
 
         FireBallLeft = new BufferedImage[6];
@@ -101,16 +129,20 @@ public class Images {
 
             inventory = ImageIO.read(getClass().getResourceAsStream("/Sheets/guit.png"));
             title = ImageIO.read(getClass().getResourceAsStream("/Sheets/TitleScreen.png"));
+            GameOver = ImageIO.read(getClass().getResourceAsStream("/Sheets/GameOverScreen.png"));
+            Victory = ImageIO.read(getClass().getResourceAsStream("/Sheets/VictoryScreen.png"));
             door = ImageIO.read(getClass().getResourceAsStream("/Sheets/Door.png"));
             E = ImageIO.read(getClass().getResourceAsStream("/Buttons/E.png"));
             EP = ImageIO.read(getClass().getResourceAsStream("/Buttons/EP.png"));
             Pause = ImageIO.read(getClass().getResourceAsStream("/Buttons/PauseScreenBase.png"));
             Resume[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BResume1.png"));
-            Resume[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/ResumeP.png"));
+            Resume[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BResumeP2.png"));
             BTitle[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BTitle1.png"));
-            BTitle[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BTitleP.png"));
+            BTitle[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BTitleP3.png"));
             Options[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BOptions6.png"));
-            Options[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/OptionsP.png"));
+            Options[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BOptionsP2.png"));
+            BRestart[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BRestart1.png"));
+            BRestart[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/BRestartP.png"));
             
 
             //icon
@@ -160,9 +192,9 @@ public class Images {
 
             blocks[0] = ImageIO.read(getClass().getResourceAsStream("/Blocks/Slime.png"));
 
-            butstart[0]= newsheet.crop(11,422,93,34);//normbut
-            butstart[1]= newsheet.crop(11,456,93,33);//hoverbut
-            butstart[2]= newsheet.crop(11,489,93,32);//clickbut
+            butstart[0]= ImageIO.read(getClass().getResourceAsStream("/Buttons/ClickBut5.png"));//normbut
+            butstart[1]= ImageIO.read(getClass().getResourceAsStream("/Buttons/HoverBut2.png"));//hoverbut
+            butstart[2]= ImageIO.read(getClass().getResourceAsStream("/Buttons/ClickedBut1.png"));//clickbut
 
             particleSmoke[0]= newsheet.crop(111,397,18,38);
             particleSmoke[1]= newsheet.crop(129,399,20,35);
@@ -234,26 +266,75 @@ public class Images {
             player_back[2]=newsheet.crop(196,227,width,height);
             player_back[3]=newsheet.crop(228,227,28,height);
 
-            //Skely enemy anim
-            SkelyEnemy_front[0]=newsheet.crop(132,131+130,width,height);
-            SkelyEnemy_front[1]=newsheet.crop(164,131+130,width,height);
-            SkelyEnemy_front[2]=newsheet.crop(196,131+130,width,height);
-            SkelyEnemy_front[3]=newsheet.crop(228,131+130,28,height);
+//Skely Enemy
+            
+            SkelyEnemy_front[0]=newsheet.crop(388,253,width,height);
+            SkelyEnemy_front[1]=newsheet.crop(420,253,width,height);
+            SkelyEnemy_front[2]=newsheet.crop(452,253,width,height);
+            SkelyEnemy_front[3]=newsheet.crop(484,253,28,height);
+            
+            SkelyEnemy_left[0]=newsheet.crop(388,296,width,height);
+            SkelyEnemy_left[1]=newsheet.crop(420,296,width,height);
+            SkelyEnemy_left[2]=newsheet.crop(452,296,width,height);
+            SkelyEnemy_left[3]=newsheet.crop(484,296,28,height);
 
-            SkelyEnemy_left[0]=newsheet.crop(132,163+130,width,height);
-            SkelyEnemy_left[1]=newsheet.crop(164,163+130,width,height);
-            SkelyEnemy_left[2]=newsheet.crop(196,163+130,width,height);
-            SkelyEnemy_left[3]=newsheet.crop(228,163+130,28,height);
+            SkelyEnemy_right[0]=newsheet.crop(388,336,width,height);
+            SkelyEnemy_right[1]=newsheet.crop(420,336,width,height);
+            SkelyEnemy_right[2]=newsheet.crop(452,336,width,height);
+            SkelyEnemy_right[3]=newsheet.crop(484,336,28,height);
 
-            SkelyEnemy_right[0]=newsheet.crop(132,195+130,width,height);
-            SkelyEnemy_right[1]=newsheet.crop(164,195+130,width,height);
-            SkelyEnemy_right[2]=newsheet.crop(196,195+130,width,height);
-            SkelyEnemy_right[3]=newsheet.crop(228,195+130,28,height);
+            SkelyEnemy_back[0]=newsheet.crop(388,378,width,height);
+            SkelyEnemy_back[1]=newsheet.crop(420,378,width,height);
+            SkelyEnemy_back[2]=newsheet.crop(452,378,width,height);
+            SkelyEnemy_back[3]=newsheet.crop(484,378,28,height);
+            
+            // Companion Rock Lee
+            Companion_front[0]=newsheet.crop(132,131+130,width,height);
+            Companion_front[1]=newsheet.crop(164,131+130,width,height);
+            Companion_front[2]=newsheet.crop(196,131+130,width,height);
+            Companion_front[3]=newsheet.crop(228,131+130,28,height);
 
-            SkelyEnemy_back[0]=newsheet.crop(132,227+130,width,height);
-            SkelyEnemy_back[1]=newsheet.crop(164,227+130,width,height);
-            SkelyEnemy_back[2]=newsheet.crop(196,227+130,width,height);
-            SkelyEnemy_back[3]=newsheet.crop(228,227+130,28,height);
+            Companion_left[0]=newsheet.crop(132,163+130,width,height);
+            Companion_left[1]=newsheet.crop(164,163+130,width,height);
+            Companion_left[2]=newsheet.crop(196,163+130,width,height);
+            Companion_left[3]=newsheet.crop(228,163+130,28,height);
+
+            Companion_right[0]=newsheet.crop(132,195+130,width,height);
+            Companion_right[1]=newsheet.crop(164,195+130,width,height);
+            Companion_right[2]=newsheet.crop(196,195+130,width,height);
+            Companion_right[3]=newsheet.crop(228,195+130,28,height);
+
+            Companion_back[0]=newsheet.crop(132,227+130,width,height);
+            Companion_back[1]=newsheet.crop(164,227+130,width,height);
+            Companion_back[2]=newsheet.crop(196,227+130,width,height);
+            Companion_back[3]=newsheet.crop(228,227+130,28,height);
+            
+            //Humanoid Dynamic Hina-chan
+            HumanDynamic_front=newsheet.crop(260,131,28,height);
+//            HumanDynamic_front[1]=newsheet.crop(260,131,28,height);
+//            HumanDynamic_front[2]=newsheet.crop(260,131,28,height);
+//            HumanDynamic_front[3]=newsheet.crop(260,131,28,height);
+            
+            // Boss Sasuke
+            Boss_front[0]=newsheet.crop(260,131+130,width,height);
+            Boss_front[1]=newsheet.crop(292,131+130,width,height);
+            Boss_front[2]=newsheet.crop(324,131+130,width,height);
+            Boss_front[3]=newsheet.crop(356,131+130,28,height);
+            
+            Boss_left[0]=newsheet.crop(260,163+130,width,height);
+            Boss_left[1]=newsheet.crop(292,163+130,width,height);
+            Boss_left[2]=newsheet.crop(324,163+130,width,height);
+            Boss_left[3]=newsheet.crop(356,163+130,28,height);
+
+            Boss_right[0]=newsheet.crop(260,195+130,width,height);
+            Boss_right[1]=newsheet.crop(292,195+130,width,height);
+            Boss_right[2]=newsheet.crop(324,195+130,width,height);
+            Boss_right[3]=newsheet.crop(356,195+130,28,height);
+
+            Boss_back[0]=newsheet.crop(260,227+130,width,height);
+            Boss_back[1]=newsheet.crop(292,227+130,width,height);
+            Boss_back[2]=newsheet.crop(324,227+130,width,height);
+            Boss_back[3]=newsheet.crop(356,227+130,28,height);
             
             //Custom items
             items[1]= ItemsSheet.crop(0,0, 32, 32);//Apple
