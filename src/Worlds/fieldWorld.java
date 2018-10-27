@@ -18,7 +18,7 @@ import Main.Handler;
 public class fieldWorld extends BaseWorld{
     private Handler handler;
     private Player player;
-
+    private BaseWorld fieldWorld;
     public fieldWorld(Handler handler, String path, Player player){
         super(handler,path,player);
         this.handler = handler;
@@ -33,6 +33,8 @@ public class fieldWorld extends BaseWorld{
         entityManager.addEntity(new Rock(handler, 300, 150));       
         entityManager.addEntity(new Rock(handler, 1350, 770));
         entityManager.addEntity(new Rock(handler, 1412, 770));
+        
+        entityManager.addEntity(new Door(handler, 100, 0,fieldWorld));
         
         entityManager.addEntity(new SecondQuestHumanoid(handler, 650, 50));
         entityManager.addEntity(new SkelyEnemy2(handler, 400, 400));
