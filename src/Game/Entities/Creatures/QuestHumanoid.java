@@ -83,6 +83,8 @@ public class QuestHumanoid extends CreatureBase  {
 
     @Override
     public void render(Graphics g) {
+    	
+    	
     	if(isBeinghurt()) {
     		for(Item item : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
     			if(item.getName()=="Coin") {    		
