@@ -240,6 +240,6 @@ public class BossEnemy extends CreatureBase  {
     	handler.getWorld().getItemManager().addItem(Item.Coin.createNew((int)x + bounds.x,(int)y + bounds.y,1));
     	handler.getWorld().getItemManager().addItem(Item.Key.createNew((int)x + bounds.x+50,(int)y + bounds.y,1));
     	State.setState(handler.getGame().victoryState);
-    	State.setState(handler.getGame().menuState);
+//    	State.setState(handler.getGame().menuState);
     }
 }

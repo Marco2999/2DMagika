@@ -55,10 +55,10 @@ public class CompanionEntity extends CreatureBase  {
         randint = new Random();
         direction = randint.nextInt(4) + 1;
 
-        animDown = new Animation(animWalkingSpeed, Images.SkelyEnemy_front);
-        animLeft = new Animation(animWalkingSpeed,Images.SkelyEnemy_left);
-        animRight = new Animation(animWalkingSpeed,Images.SkelyEnemy_right);
-        animUp = new Animation(animWalkingSpeed,Images.SkelyEnemy_back);
+        animDown = new Animation(animWalkingSpeed, Images.Companion_front);
+        animLeft = new Animation(animWalkingSpeed,Images.Companion_left);
+        animRight = new Animation(animWalkingSpeed,Images.Companion_right);
+        animUp = new Animation(animWalkingSpeed,Images.Companion_back);
 
         Companioninventory= new Inventory(handler);
     }
@@ -66,6 +66,7 @@ public class CompanionEntity extends CreatureBase  {
 
     @Override
     public void tick() {
+    	this.health = 50;
         animDown.tick();
         animUp.tick();
         animRight.tick();
@@ -244,7 +245,7 @@ public class CompanionEntity extends CreatureBase  {
     @Override
     public void render(Graphics g) {
     	
-        g.drawImage(getCurrentAnimationFrame(animDown,animUp,animLeft,animRight,Images.SkelyEnemy_front,Images.SkelyEnemy_back,Images.SkelyEnemy_left,Images.SkelyEnemy_right), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+        g.drawImage(getCurrentAnimationFrame(animDown,animUp,animLeft,animRight,Images.Companion_front,Images.Companion_back,Images.Companion_left,Images.Companion_right), (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
         
         g.setColor(Color.BLACK);
         g.drawRect((int)(x-handler.getGameCamera().getxOffset()-1),(int)(y-handler.getGameCamera().getyOffset()-21),51,11);
@@ -263,9 +264,9 @@ public class CompanionEntity extends CreatureBase  {
         }  
         Font stringfont = new Font("SansSerif",Font.PLAIN, 10);
         g.setFont(stringfont);
-        g.setColor(Color.white);
+        g.setColor(Color.BLACK);
       
-        g.drawString("Companion" + getHealth(),(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-11));        
+        g.drawString("Rock Lee",(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-11));        
         }
     
 

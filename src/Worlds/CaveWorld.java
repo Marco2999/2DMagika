@@ -24,7 +24,8 @@ public class CaveWorld extends BaseWorld{
 //    private Player player;
     public int checkdoor=0;
     private int alreadymade=0;
-    public boolean playerHasSeal=false;
+    public boolean playerHasSealCave=false;
+    public int oneLee=0;
 
     public CaveWorld(Handler handler, String path, Player player){
         super(handler,path,player);
@@ -43,19 +44,13 @@ public class CaveWorld extends BaseWorld{
 
 
         entityManager.addEntity(new SecondQuestHumanoid(handler, 650, 50));
-        //entityManager.addEntity(new SkelyEnemy(handler, 200, 300));
 
-        entityManager.addEntity(new Door2(handler, 100, 0, fieldWorld));
+        entityManager.addEntity(new Door2(handler, 300, 0, fieldWorld));
         entityManager.addEntity(new SkelyEnemy2(handler, 400, 400));
         entityManager.addEntity(new SkelyEnemy2(handler, 700, 600));
         entityManager.addEntity(new SkelyEnemy2(handler, 300, 370));
         entityManager.addEntity(new SkelyEnemy2(handler, 350, 300));
-        entityManager.addEntity(new SkelyEnemy2(handler, 200, 700));
-        entityManager.addEntity(new SkelyEnemy2(handler, 600, 600));
-        entityManager.addEntity(new SkelyEnemy2(handler, 700, 600));
-        entityManager.addEntity(new SkelyEnemy2(handler, 500, 600));
-        entityManager.addEntity(new SkelyEnemy2(handler, 400, 600));
-       // entityManager.addEntity(new BossEnemy(handler, 1400, 500));;
+
         
         
         // Coin Blocks
@@ -64,9 +59,6 @@ public class CaveWorld extends BaseWorld{
         entityManager.addEntity(new CoinBlock(handler, 500, 700));
         entityManager.addEntity(new CoinBlock(handler, 832, 128));
         entityManager.addEntity(new CoinBlock(handler, 1000, 900));
-
-
-        //entityManager.addEntity(new Door(handler, 100, 0, fieldWorld));
         
         
         
@@ -79,17 +71,19 @@ public class CaveWorld extends BaseWorld{
     public void tick(){
     	for (Item j : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
 			if (j.getName() == "Seal") {
-				playerHasSeal = true;
+				playerHasSealCave = true;
 			}
 		}
-    	if(handler.getKeyManager().summonCompanion&&playerHasSeal) {
-    		entityManager.addEntity(new CompanionEntity(handler, 400, 600));
-			
-			for (Item j : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
+    	if(handler.getKeyManager().summonCompanion&&playerHasSealCave) {
+    		if(oneLee==0) {
+    			oneLee++;
+    			entityManager.addEntity(new CompanionEntity(handler,handler.getWorld().getEntityManager().getPlayer().getX()+30, handler.getWorld().getEntityManager().getPlayer().getY()+5));
+    		}
+    		
+    		playerHasSealCave = false;
+    		for (Item j : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
 				if (j.getName() == "Seal") {
-					playerHasSeal = false;
 					j.setCount(j.getCount() - 1);
-					//stopFollowingMeSans++;
 					Item.Seal.setCount(0);
 
 					break;

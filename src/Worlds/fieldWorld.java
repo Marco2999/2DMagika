@@ -1,5 +1,6 @@
 package Worlds;
 import Game.Entities.Creatures.BossEnemy;
+import Game.Entities.Creatures.CompanionEntity;
 import Game.Entities.Creatures.Player;
 import Game.Entities.Creatures.QuestHumanoid;
 import Game.Entities.Creatures.SecondQuestHumanoid;
@@ -10,6 +11,8 @@ import Game.Entities.Statics.Door;
 import Game.Entities.Statics.Door2;
 import Game.Entities.Statics.Rock;
 import Game.Entities.Statics.Tree;
+import Game.GameStates.State;
+import Game.Items.Item;
 //import Game.Entities.Statics.CactusBlock;
 import Main.Handler;
 
@@ -17,6 +20,7 @@ import Main.Handler;
  * Created by Elemental on 2/10/2017.
  */
 public class fieldWorld extends BaseWorld{
+	private boolean playerHasSealField = false;
     private Handler handler;
     private Player player;
     private BaseWorld fieldWorld;
@@ -34,10 +38,10 @@ public class fieldWorld extends BaseWorld{
         entityManager.addEntity(new Rock(handler, 300, 150));       
         entityManager.addEntity(new Rock(handler, 1350, 770));
         entityManager.addEntity(new Rock(handler, 1412, 770));
+        entityManager.addEntity(new Rock(handler, 1475, 770));
         
-        entityManager.addEntity(new Door2(handler, 400, 0,fieldWorld));
+       // entityManager.addEntity(new Door2(handler, 400, 0,fieldWorld));
         
-        entityManager.addEntity(new SecondQuestHumanoid(handler, 650, 50));
         entityManager.addEntity(new SkelyEnemy2(handler, 400, 400));
         entityManager.addEntity(new SkelyEnemy2(handler, 700, 600));
         entityManager.addEntity(new SkelyEnemy2(handler, 300, 370));
@@ -52,7 +56,7 @@ public class fieldWorld extends BaseWorld{
 
         entityManager.addEntity(new BossEnemy(handler, 1400, 500));;
 
-        entityManager.addEntity(new Rock(handler, 1475, 770));
+        
 
        
         
@@ -72,7 +76,41 @@ public class fieldWorld extends BaseWorld{
         entityManager.getPlayer().setX(spawnX);
         entityManager.getPlayer().setY(spawnY);
     }
-    
+    public void tick(){
+    	for (Item j : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
+			if (j.getName() == "Seal") {
+				playerHasSealField = true;
+			}
+		}
+    	if(handler.getKeyManager().summonCompanion&&playerHasSealField) {
+    		if(oneLee==0) {
+    			oneLee++;
+    			entityManager.addEntity(new CompanionEntity(handler,handler.getWorld().getEntityManager().getPlayer().getX()+30, handler.getWorld().getEntityManager().getPlayer().getY()+5));
+    		}
+    		
+    		playerHasSealField = false;
+    		for (Item j : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
+				if (j.getName() == "Seal") {
+					j.setCount(j.getCount() - 1);
+					Item.Seal.setCount(0);
+
+					break;
+				}
+			}
+		}
+        entityManager.tick();
+        itemManager.tick();
+        countP++;
+        if(countP>=30){
+            countP=30;
+        }
+
+        if(handler.getKeyManager().pbutt && countP>=30){
+            handler.getMouseManager().setUimanager(null);
+            countP=0;
+            State.setState(handler.getGame().pauseState);
+        }
+    }
 
 
 }

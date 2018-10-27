@@ -28,13 +28,15 @@ public class BaseWorld {
     protected int spawnX, spawnY;
     protected int[][] tiles;
     protected int countP = 0;
+    
+    int oneLee=0;
 
     protected EntityManager entityManager;
 
     //Item
     protected ItemManager itemManager;
     
-    private boolean playerHasSeal=false;
+    private boolean playerHasSealBase=false;
 
 
 
@@ -51,17 +53,19 @@ public class BaseWorld {
     public void tick(){
     	for (Item j : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
 			if (j.getName() == "Seal") {
-				playerHasSeal=true;
+				playerHasSealBase = true;
 			}
 		}
-    	if(handler.getKeyManager().summonCompanion) {
-    		entityManager.addEntity(new CompanionEntity(handler, 400, 600));
-			
-			for (Item j : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
+    	if(handler.getKeyManager().summonCompanion&&playerHasSealBase) {
+    		if(oneLee==0) {
+    			oneLee++;
+    			entityManager.addEntity(new CompanionEntity(handler,handler.getWorld().getEntityManager().getPlayer().getX()+30, handler.getWorld().getEntityManager().getPlayer().getY()+5));
+    		}
+    		
+    		playerHasSealBase = false;
+    		for (Item j : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
 				if (j.getName() == "Seal") {
-					
 					j.setCount(j.getCount() - 1);
-					//stopFollowingMeSans++;
 					Item.Seal.setCount(0);
 
 					break;
