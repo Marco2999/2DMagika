@@ -102,6 +102,9 @@ public class Player extends CreatureBase {
          	inventory.addItem(new Item(Images.blocks[14],"Rock",1));
          	inventory.addItem(new Item(Images.Runes[2],"Fire Rune",2));
          	inventory.addItem(new Item(Images.items[4], "Key", 6));
+         	inventory.addItem(new Item(Images.items[5], "Seal", 7));
+         	inventory.addItem(new Item(Images.items[6], "Scroll", 8));
+         	inventory.addItem(new Item(Images.items[7], "Ramen", 9));
          	
          
     	for (Item i : getInventory().getInventoryItems()) {

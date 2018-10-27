@@ -37,7 +37,10 @@ public class Item {
     public static Item attackItm = new Item(Images.items[2], "Slingshot", 4);//Attack increase item
     public static Item Coin = new Item(Images.items[3], "Coin", 5);//Coin
     public static Item Key = new Item(Images.items[4], "Key", 6);//Key
-    public static Item Seal = new Item(Images.items[4], "Seal", 7);//Key
+
+    public static Item Seal = new Item(Images.items[5], "Seal", 7);//Seal
+    public static Item Scroll = new Item(Images.items[6], "Scroll", 8);//Seal
+    public static Item Ramen = new Item(Images.items[7], "Ramen", 9);//Seal
 
 
 

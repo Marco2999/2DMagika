@@ -7,21 +7,18 @@ import Game.Entities.Statics.CoinBlock;
 import Game.Entities.Statics.Door;
 import Game.Entities.Statics.Rock;
 import Game.Entities.Statics.Tree;
-import Game.GameStates.State;
 import Main.Handler;
 
 /**
  * Created by Elemental on 2/10/2017.
  */
-public class CaveWorld extends BaseWorld{
+public class fieldWorld extends BaseWorld{
     private Handler handler;
-    private BaseWorld fieldWorld;
     private Player player;
 
-    public CaveWorld(Handler handler, String path, Player player){
+    public fieldWorld(Handler handler, String path, Player player){
         super(handler,path,player);
         this.handler = handler;
-        fieldWorld = new fieldWorld(handler,"res/Maps/fieldMap.map",player);
 
         entityManager.addEntity(new Tree(handler, 100, 250));
         entityManager.addEntity(new Rock(handler, 100, 450));
@@ -34,7 +31,8 @@ public class CaveWorld extends BaseWorld{
         entityManager.addEntity(new Rock(handler, 1350, 770));
         entityManager.addEntity(new Rock(handler, 1412, 770));
         entityManager.addEntity(new Rock(handler, 1475, 770));
-        entityManager.addEntity(new Door(handler, 100, 0, fieldWorld));
+       // entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
+        entityManager.addEntity(new BossEnemy(handler, 1400, 500));
         entityManager.addEntity(new QuestHumanoid(handler, 650, 50));
         entityManager.addEntity(new SkelyEnemy(handler, 200, 300));
         
@@ -46,9 +44,7 @@ public class CaveWorld extends BaseWorld{
         entityManager.addEntity(new CoinBlock(handler, 500, 700));
         entityManager.addEntity(new CoinBlock(handler, 832, 128));
         entityManager.addEntity(new CoinBlock(handler, 1000, 900));
-
-
-        entityManager.addEntity(new Door(handler, 100, 0, fieldWorld));
+        
 
         
 
@@ -58,6 +54,7 @@ public class CaveWorld extends BaseWorld{
         entityManager.getPlayer().setY(spawnY);
     }
     
+//    
 //    public CaveWorld(Handler handler, String path, Player player) {
 //        super(handler,path,player);
 //        this.handler = handler;
