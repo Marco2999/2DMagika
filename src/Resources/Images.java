@@ -24,7 +24,7 @@ public class Images {
     public static BufferedImage[] SkelyEnemy_left;
     public static BufferedImage[] SkelyEnemy_front;
     public static BufferedImage[] SkelyEnemy_back;
-    public static BufferedImage[] HumanDynamic_front;
+    public static BufferedImage HumanDynamic_front;
     public static BufferedImage[] Boss_front;
     public static BufferedImage[] Boss_back;
     public static BufferedImage[] Boss_right;
@@ -310,31 +310,31 @@ public class Images {
             Companion_back[3]=newsheet.crop(228,227+130,28,height);
             
             //Humanoid Dynamic Hina-chan
-//            HumanDynamic_front[0]=newsheet.crop(260,131,28,height);
+            HumanDynamic_front=newsheet.crop(260,131,28,height);
 //            HumanDynamic_front[1]=newsheet.crop(260,131,28,height);
 //            HumanDynamic_front[2]=newsheet.crop(260,131,28,height);
 //            HumanDynamic_front[3]=newsheet.crop(260,131,28,height);
-//            
+            
             // Boss Sasuke
-//            Boss_front[0]=newsheet.crop(260,131+130,width,height);
-//            Boss_front[1]=newsheet.crop(292,131+130,width,height);
-//            Boss_front[2]=newsheet.crop(324,131+130,width,height);
-//            Boss_front[3]=newsheet.crop(356,131+130,28,height);
-//            
-//            Boss_left[0]=newsheet.crop(260,163+130,width,height);
-//            Boss_left[1]=newsheet.crop(292,163+130,width,height);
-//            Boss_left[2]=newsheet.crop(324,163+130,width,height);
-//            Boss_left[3]=newsheet.crop(356,163+130,28,height);
-//
-//            Boss_right[0]=newsheet.crop(260,195+130,width,height);
-//            Boss_right[1]=newsheet.crop(292,195+130,width,height);
-//            Boss_right[2]=newsheet.crop(324,195+130,width,height);
-//            Boss_right[3]=newsheet.crop(356,195+130,28,height);
-//
-//            Boss_back[0]=newsheet.crop(260,227+130,width,height);
-//            Boss_back[1]=newsheet.crop(292,227+130,width,height);
-//            Boss_back[2]=newsheet.crop(324,227+130,width,height);
-//            Boss_back[3]=newsheet.crop(356,227+130,28,height);
+            Boss_front[0]=newsheet.crop(260,131+130,width,height);
+            Boss_front[1]=newsheet.crop(292,131+130,width,height);
+            Boss_front[2]=newsheet.crop(324,131+130,width,height);
+            Boss_front[3]=newsheet.crop(356,131+130,28,height);
+            
+            Boss_left[0]=newsheet.crop(260,163+130,width,height);
+            Boss_left[1]=newsheet.crop(292,163+130,width,height);
+            Boss_left[2]=newsheet.crop(324,163+130,width,height);
+            Boss_left[3]=newsheet.crop(356,163+130,28,height);
+
+            Boss_right[0]=newsheet.crop(260,195+130,width,height);
+            Boss_right[1]=newsheet.crop(292,195+130,width,height);
+            Boss_right[2]=newsheet.crop(324,195+130,width,height);
+            Boss_right[3]=newsheet.crop(356,195+130,28,height);
+
+            Boss_back[0]=newsheet.crop(260,227+130,width,height);
+            Boss_back[1]=newsheet.crop(292,227+130,width,height);
+            Boss_back[2]=newsheet.crop(324,227+130,width,height);
+            Boss_back[3]=newsheet.crop(356,227+130,28,height);
             
             //Custom items
             items[1]= ItemsSheet.crop(0,0, 32, 32);//Apple

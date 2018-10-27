@@ -112,11 +112,7 @@ public class Player extends CreatureBase {
             	OneofEachTimer = 0;
             } 
     	}
-//    	if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_C){
-//			World1.class.entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
-//			World1.super()
-//	}
-    	
+
     	
         //Animations
         animDown.tick();
@@ -176,12 +172,6 @@ public class Player extends CreatureBase {
         	}
         }
         
-	    // Next World WIP
-	 //   if(handler.getKeyManager().nextWorldKey) {
-	    	
-	  //  }
-
-
         //Inventory
         inventory.tick();
 

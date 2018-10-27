@@ -24,6 +24,8 @@ public class QuestHumanoid extends CreatureBase  {
     private Rectangle SkelyCam;
 
     private int healthcounter =0;
+    
+    private Animation animDown;
 
     private Random randint;
     private int msgCooldown=0;
@@ -83,6 +85,9 @@ public class QuestHumanoid extends CreatureBase  {
 
     @Override
     public void render(Graphics g) {
+    	g.drawImage(Images.HumanDynamic_front,(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()),width,height,null);
+    	
+    	
     	if(isBeinghurt()) {
     		for(Item item : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
     			if(item.getName()=="Coin") {    		
