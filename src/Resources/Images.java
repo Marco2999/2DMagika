@@ -315,10 +315,6 @@ public class Images {
             
 
             HumanDynamic_front=newsheet.crop(260,131,28,height);
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/UPRM-CIIC4010-F18/2dmagika-oh-oh-oh-it-s-magika.git
             
             // Boss Sasuke
             Boss_front[0]=newsheet.crop(260,131+130,width,height);

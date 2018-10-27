@@ -18,6 +18,8 @@ public class KeyManager implements KeyListener {
 	public boolean OneofEach=false;
 	
 	public boolean appearDoor=false;
+	
+	public boolean summonCompanion=false;
 
 
 
@@ -57,6 +59,7 @@ public class KeyManager implements KeyListener {
 		regenHP = keys[KeyEvent.VK_SHIFT];//Key for healing HP
 		appleHeal = keys[KeyEvent.VK_F];//Key for healing with apple item
 		
+		summonCompanion = keys[KeyEvent.VK_G];//Summons companion
 		
 		
 

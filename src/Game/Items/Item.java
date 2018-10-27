@@ -39,8 +39,8 @@ public class Item {
     public static Item Key = new Item(Images.items[4], "Key", 6);//Key
 
     public static Item Seal = new Item(Images.items[5], "Seal", 7);//Seal
-    public static Item Scroll = new Item(Images.items[6], "Scroll", 8);//Seal
-    public static Item Ramen = new Item(Images.items[7], "Ramen", 9);//Seal
+    public static Item Scroll = new Item(Images.items[6], "Scroll", 8);//Scroll
+    public static Item Ramen = new Item(Images.items[7], "Ramen", 9);//Ramen
 
 
 
