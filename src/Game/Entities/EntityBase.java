@@ -1,4 +1,4 @@
-package Game.Entities;
+	package Game.Entities;
 
 import Resources.Images;
 import Main.Handler;

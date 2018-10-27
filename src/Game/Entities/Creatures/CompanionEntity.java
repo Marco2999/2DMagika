@@ -10,6 +10,8 @@ import Resources.Images;
 import java.awt.*;
 import java.util.Random;
 
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+
 /**
  * Created by Elemental on 2/7/2017.
  */
@@ -21,8 +23,8 @@ public class CompanionEntity extends CreatureBase  {
     private Boolean attacking=false;
 
     private int animWalkingSpeed = 150;
-    private Inventory Skelyinventory;
-    private Rectangle SkelyCam;
+    private Inventory Companioninventory;
+    private Rectangle CompanionCam;
 
     private int healthcounter =0;
 
@@ -31,7 +33,7 @@ public class CompanionEntity extends CreatureBase  {
     private int direction;
     
 
-    private int skelyRegenCounter = 0;
+    private int companionRegenCounter = 0;
 
     
 
@@ -46,7 +48,7 @@ public class CompanionEntity extends CreatureBase  {
         speed=1.5f;
         health=50;
 
-        SkelyCam= new Rectangle();
+        CompanionCam= new Rectangle();
 
 
 
@@ -58,7 +60,7 @@ public class CompanionEntity extends CreatureBase  {
         animRight = new Animation(animWalkingSpeed,Images.SkelyEnemy_right);
         animUp = new Animation(animWalkingSpeed,Images.SkelyEnemy_back);
 
-        Skelyinventory= new Inventory(handler);
+        Companioninventory= new Inventory(handler);
     }
     //Font stringfont = new Font("SansSerif",Font.PLAIN, 20);
 
@@ -80,7 +82,7 @@ public class CompanionEntity extends CreatureBase  {
 
 
         if(isBeinghurt()){
-        	skelyRegenCounter = 0;
+        	companionRegenCounter = 0;
             healthcounter++;
             if(healthcounter>=120){
                 setBeinghurt(false);
@@ -92,8 +94,8 @@ public class CompanionEntity extends CreatureBase  {
         }
         
         if(!isBeinghurt()) {
-        	skelyRegenCounter++;
-        	if(skelyRegenCounter >= 500 && health < 50) {
+        	companionRegenCounter++;
+        	if(companionRegenCounter >= 500 && health < 50) {
         		health++;
         	}
         	
@@ -102,7 +104,7 @@ public class CompanionEntity extends CreatureBase  {
         
 
 
-        Skelyinventory.tick();
+        Companioninventory.tick();
         
         
 
@@ -110,17 +112,17 @@ public class CompanionEntity extends CreatureBase  {
     }
 
 
-    private void checkIfMove() {
+  private void checkIfMove() {
         xMove = 0;
         yMove = 0;
 
-        SkelyCam.x = (int) (x - handler.getGameCamera().getxOffset() - (64 * 3));
-        SkelyCam.y = (int) (y - handler.getGameCamera().getyOffset() - (64 * 3));
-        SkelyCam.width = 64 * 7;
-        SkelyCam.height = 64 * 7;
+        CompanionCam.x = (int) (x - handler.getGameCamera().getxOffset() - (64 * 3));
+        CompanionCam.y = (int) (y - handler.getGameCamera().getyOffset() - (64 * 3));
+        CompanionCam.width = 64 * 7;
+        CompanionCam.height = 64 * 7;
 
-        if (SkelyCam.contains(handler.getWorld().getEntityManager().getPlayer().getX() - handler.getGameCamera().getxOffset(), handler.getWorld().getEntityManager().getPlayer().getY() - handler.getGameCamera().getyOffset())
-                || SkelyCam.contains(handler.getWorld().getEntityManager().getPlayer().getX() - handler.getGameCamera().getxOffset() + handler.getWorld().getEntityManager().getPlayer().getWidth(), handler.getWorld().getEntityManager().getPlayer().getY() - handler.getGameCamera().getyOffset() + handler.getWorld().getEntityManager().getPlayer().getHeight())) {
+        if (CompanionCam.contains(handler.getWorld().getEntityManager().getPlayer().getX() - handler.getGameCamera().getxOffset(), handler.getWorld().getEntityManager().getPlayer().getY() - handler.getGameCamera().getyOffset())
+                || CompanionCam.contains(handler.getWorld().getEntityManager().getPlayer().getX() - handler.getGameCamera().getxOffset() + handler.getWorld().getEntityManager().getPlayer().getWidth(), handler.getWorld().getEntityManager().getPlayer().getY() - handler.getGameCamera().getyOffset() + handler.getWorld().getEntityManager().getPlayer().getHeight())) {
 
             Rectangle cb = getCollisionBounds(0, 0);
             Rectangle ar = new Rectangle();
@@ -195,6 +197,48 @@ public class CompanionEntity extends CreatureBase  {
             }
         }
     }
+    @Override
+    public void checkAttacks() {
+    	attackTimer += System.currentTimeMillis() - lastAttackTimer;
+    	lastAttackTimer = System.currentTimeMillis();
+    	if(attackTimer<attackCooldown) 
+    		return;
+    	
+    	Rectangle cb = getCollisionBounds(0, 0);
+    	Rectangle ar = new Rectangle();
+    	int arSize = 20;
+    	ar.width = arSize;
+    	ar.height = arSize;
+    	
+    	if (lu) {
+            ar.x = cb.x + cb.width / 2 - arSize / 2;
+            ar.y = cb.y - arSize;
+        } else if (ld) {
+            ar.x = cb.x + cb.width / 2 - arSize / 2;
+            ar.y = cb.y + cb.height;
+        } else if (ll) {
+            ar.x = cb.x - arSize;
+            ar.y = cb.y + cb.height / 2 - arSize / 2;
+        } else if (lr) {
+            ar.x = cb.x + cb.width;
+            ar.y = cb.y + cb.height / 2 - arSize / 2;
+        }else {
+        	return;
+        }
+    	
+    	attackTimer =0;
+    	
+    	for (EntityBase e : handler.getWorld().getEntityManager().getEntities()) {
+            if (e.equals(this))
+                continue;
+            if (e.getCollisionBounds(0, 0).intersects(ar) && !e.equals(handler.getWorld().getEntityManager().getPlayer())) {
+            	e.hurt(attack);
+            	System.out.println(e + " has " + e.getHealth()+ " lives.");
+            	return;
+            }
+    	}
+    	
+    }
 
 
     @Override
@@ -221,7 +265,7 @@ public class CompanionEntity extends CreatureBase  {
         g.setFont(stringfont);
         g.setColor(Color.white);
       
-        g.drawString("Health: " + getHealth(),(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-11));        
+        g.drawString("Companion" + getHealth(),(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()-11));        
         }
     
 
@@ -230,8 +274,6 @@ public class CompanionEntity extends CreatureBase  {
 
     @Override
     public void die() {
-    	handler.getWorld().getItemManager().addItem(Item.Coin.createNew((int)x + bounds.x,(int)y + bounds.y,1));
-    	//handler.getWorld().getItemManager().addItem(Item.Key.createNew((int)x + bounds.x+50,(int)y + bounds.y,1));
     	
     }
 }

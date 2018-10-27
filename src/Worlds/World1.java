@@ -1,6 +1,7 @@
 package Worlds;
 
 import Game.Entities.Creatures.BossEnemy;
+import Game.Entities.Creatures.CompanionEntity;
 import Game.Entities.Creatures.Player;
 import Game.Entities.Creatures.QuestHumanoid;
 import Game.Entities.Creatures.SkelyEnemy;
@@ -15,7 +16,6 @@ public class World1 extends BaseWorld{
     private Handler handler;
     private BaseWorld caveWorld;
     public int checkdoor=0;
-    private int alreadymade=0;
 
     public World1(Handler handler, String path, Player player){
         super(handler,path,player);
@@ -33,11 +33,10 @@ public class World1 extends BaseWorld{
         entityManager.addEntity(new Rock(handler, 1350, 770));
         entityManager.addEntity(new Rock(handler, 1412, 770));
         entityManager.addEntity(new Rock(handler, 1475, 770));
-       // entityManager.addEntity(new Door(handler, 100, 0,caveWorld));
         entityManager.addEntity(new BossEnemy(handler, 1400, 500));
         entityManager.addEntity(new QuestHumanoid(handler, 650, 50));
         entityManager.addEntity(new SkelyEnemy(handler, 200, 300));
-        
+        entityManager.addEntity(new CompanionEntity(handler, 400, 600));
         
         
         // Coin Blocks

@@ -309,11 +309,9 @@ public class Images {
             Companion_back[2]=newsheet.crop(196,227+130,width,height);
             Companion_back[3]=newsheet.crop(228,227+130,28,height);
             
-            //Humanoid Dynamic Hina-chan
+
             HumanDynamic_front=newsheet.crop(260,131,28,height);
-//            HumanDynamic_front[1]=newsheet.crop(260,131,28,height);
-//            HumanDynamic_front[2]=newsheet.crop(260,131,28,height);
-//            HumanDynamic_front[3]=newsheet.crop(260,131,28,height);
+
             
             // Boss Sasuke
             Boss_front[0]=newsheet.crop(260,131+130,width,height);
@@ -341,6 +339,7 @@ public class Images {
             items[2]= ItemsSheet.crop(32,0, 32, 32);//Slingshot
             items[3]= ItemsSheet.crop(64, 0, 32, 32);//Coin
             items[4]= ItemsSheet.crop(96, 0, 32, 32);//Key
+            items[5]= ItemsSheet.crop(96, 0, 32, 32);
 
         } catch (IOException e) {
             e.printStackTrace();
