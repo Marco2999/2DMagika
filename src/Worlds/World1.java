@@ -7,6 +7,7 @@ import Game.Entities.Creatures.QuestHumanoid;
 import Game.Entities.Creatures.SkelyEnemy;
 import Game.Entities.Statics.*;
 import Game.GameStates.State;
+import Game.Items.Item;
 import Main.Handler;
 
 /**
@@ -16,6 +17,7 @@ public class World1 extends BaseWorld{
     private Handler handler;
     private BaseWorld caveWorld;
     public int checkdoor=0;
+    public boolean playerHasSeal = false;
 
     public World1(Handler handler, String path, Player player){
         super(handler,path,player);
@@ -58,7 +60,25 @@ public class World1 extends BaseWorld{
         entityManager.getPlayer().setY(spawnY);
     }
     public void tick(){
+    	for (Item j : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
+			if (j.getName() == "Seal") {
+				playerHasSeal = true;
+			}
+		}
+    	if(handler.getKeyManager().summonCompanion&&playerHasSeal) {
+    		entityManager.addEntity(new CompanionEntity(handler, 400, 600));
+			
+			for (Item j : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
+				if (j.getName() == "Seal") {
+					playerHasSeal = false;
+					j.setCount(j.getCount() - 1);
+					//stopFollowingMeSans++;
+					Item.Seal.setCount(0);
 
+					break;
+				}
+			}
+		}
         entityManager.tick();
         itemManager.tick();
         countP++;

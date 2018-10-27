@@ -1,14 +1,22 @@
 package Worlds;
 
+import java.awt.Graphics;
+import Game.Entities.Creatures.CompanionEntity;
 import Game.Entities.Creatures.Player;
 import Game.Entities.EntityManager;
 import Game.GameStates.State;
+import Game.Items.Item;
 import Game.Items.ItemManager;
 import Game.Tiles.Tile;
 import Main.Handler;
 import Resources.Utils;
 
 import java.awt.*;
+
+import Game.Inventories.Inventory;
+import java.awt.event.KeyEvent;
+
+import Game.Inventories.*;
 
 /**
  * Created by Elemental on 2/10/2017.
@@ -25,7 +33,8 @@ public class BaseWorld {
 
     //Item
     protected ItemManager itemManager;
-
+    
+    private boolean playerHasSeal=false;
 
 
 
@@ -40,6 +49,26 @@ public class BaseWorld {
     }
 
     public void tick(){
+    	for (Item j : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
+			if (j.getName() == "Seal") {
+				playerHasSeal=true;
+			}
+		}
+    	if(handler.getKeyManager().summonCompanion) {
+    		entityManager.addEntity(new CompanionEntity(handler, 400, 600));
+			
+			for (Item j : handler.getWorld().getEntityManager().getPlayer().getInventory().getInventoryItems()) {
+				if (j.getName() == "Seal") {
+					
+					j.setCount(j.getCount() - 1);
+					//stopFollowingMeSans++;
+					Item.Seal.setCount(0);
+
+					break;
+				}
+			}
+		}
+    	
         entityManager.tick();
         itemManager.tick();
         countP++;
@@ -104,6 +133,7 @@ public class BaseWorld {
 
 
     }
+    
 
     public int getWidth(){
         return width;

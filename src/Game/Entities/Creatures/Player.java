@@ -1,6 +1,7 @@
 package Game.Entities.Creatures;
 
 import Game.Entities.EntityBase;
+import Game.Entities.EntityManager;
 import Game.Entities.Statics.Door;
 import Game.GameStates.State;
 import Game.Inventories.Inventory;
@@ -8,6 +9,7 @@ import Game.Items.Item;
 import Game.SpellCast.SpellCastUI;
 import Resources.Animation;
 import Resources.Images;
+import Worlds.CaveWorld;
 import Worlds.World1;
 import Main.Handler;
 import java.awt.*;
@@ -59,7 +61,7 @@ public class Player extends CreatureBase {
     
     //spells
     
-    
+    protected EntityManager entityManager;
 
     public Player(Handler handler, float x, float y) {
         super(handler, x, y, CreatureBase.DEFAULT_CREATURE_WIDTH, CreatureBase.DEFAULT_CREATURE_HEIGHT);
@@ -93,6 +95,7 @@ public class Player extends CreatureBase {
             	this.attack = 2 + i.getCount();
             }
     	}
+
 
     	
     	

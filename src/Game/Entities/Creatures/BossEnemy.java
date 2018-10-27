@@ -1,6 +1,7 @@
 package Game.Entities.Creatures;
 
 import Game.Entities.EntityBase;
+import Game.GameStates.State;
 import Game.Inventories.Inventory;
 import Game.Items.Item;
 import Main.Handler;
@@ -227,9 +228,7 @@ public class BossEnemy extends CreatureBase  {
         g.drawString("Sasuke",(int)(x-handler.getGameCamera().getxOffset()+13),(int)(y-handler.getGameCamera().getyOffset()-22));
         g.setColor(Color.white);
         g.drawString("Boss Health: " + getHealth(),(int)(x-handler.getGameCamera().getxOffset()-18.5),(int)(y-handler.getGameCamera().getyOffset()-8));
-//        if(isBeinghurt() && healthcounter<=120){
-//            g.setColor(Color.white);
-//            g.drawString("SkelyHealth: " + getHealth(),(int) (x-handler.getGameCamera().getxOffset()),(int) (y-handler.getGameCamera().getyOffset()-20));
+
         }
     
 
@@ -240,6 +239,7 @@ public class BossEnemy extends CreatureBase  {
     public void die() {
     	handler.getWorld().getItemManager().addItem(Item.Coin.createNew((int)x + bounds.x,(int)y + bounds.y,1));
     	handler.getWorld().getItemManager().addItem(Item.Key.createNew((int)x + bounds.x+50,(int)y + bounds.y,1));
-    	
+    	State.setState(handler.getGame().victoryState);
+    	State.setState(handler.getGame().menuState);
     }
 }
