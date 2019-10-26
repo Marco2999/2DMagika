@@ -2,6 +2,9 @@
 
 --- Naruto RPG ---
 
+This game is an open world RPG based on the Naruto universe.
+Destroy enemies, find items, complete quests, and defeat your rival in this great RPG adventure.
+
 Instructions: 
 
 	W,A,S,D to move
