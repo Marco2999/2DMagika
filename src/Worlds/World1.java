@@ -52,7 +52,7 @@ public class World1 extends BaseWorld{
         entityManager.addEntity(new CoinBlock(handler, 1000, 900));
 
 
-        entityManager.addEntity(new Door(handler, 100, 0,CaveWorld));
+        entityManager.addEntity(new Door(handler, 300, 0,CaveWorld));
         
 
         
